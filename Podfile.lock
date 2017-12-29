@@ -1,0 +1,53 @@
+PODS:
+  - Alamofire (4.5.1)
+  - Amplitude-iOS (4.0.4)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - CryptoSwift (0.8.0)
+  - Fabric (1.7.2)
+  - Geth (1.7.2)
+  - Google-Mobile-Ads-SDK (7.25.0)
+  - MJRefresh (3.1.15)
+  - PopupController (0.2.0)
+  - ReactiveCocoa (7.0.0-alpha.2):
+    - ReactiveSwift (= 3.0.0-alpha.1)
+  - ReactiveSwift (3.0.0-alpha.1):
+    - Result (~> 3.2)
+  - Result (3.2.4)
+  - SnapKit (4.0.0)
+  - SVProgressHUD (2.2.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - Amplitude-iOS (~> 4.0.4)
+  - Crashlytics (~> 3.9.3)
+  - CryptoSwift (~> 0.8.0)
+  - Fabric (~> 1.7.2)
+  - Geth (~> 1.7.2)
+  - Google-Mobile-Ads-SDK (~> 7.25.0)
+  - MJRefresh (~> 3.1.15)
+  - PopupController (~> 0.2.0)
+  - ReactiveCocoa (~> 7.0.0-alpha.2)
+  - ReactiveSwift (~> 3.0.0-alpha.1)
+  - SnapKit (~> 4.0.0)
+  - SVProgressHUD (~> 2.2)
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Amplitude-iOS: 2ad4d7270c99186236c1272a3a9425463b1ae1a7
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  CryptoSwift: f81907430ebbe38b8404b4f6fb40f3c576a8755f
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Geth: 1efbf2eb4d4c697a7232c5385da127ca386b1060
+  Google-Mobile-Ads-SDK: 113804f266381a30f982ad3c18063d4e0155414f
+  MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  PopupController: 0b69fdf11cbeaa807789a8c3992599083640988f
+  ReactiveCocoa: 93aa0c066eeff28cb7a49f9ea12ab5327f4f7941
+  ReactiveSwift: e6c6ed2d0ac6e3860f06f05046dc2e6ae9997003
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+
+PODFILE CHECKSUM: 23d0311cb8b3876bc243e14e87475f653ef40d2b
+
+COCOAPODS: 1.3.1

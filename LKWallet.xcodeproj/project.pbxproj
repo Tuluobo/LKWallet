@@ -1,0 +1,805 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DDCDB5174804B4843CE38CF /* Pods_LKWalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354650AB96E1DD2F7FBB66B8 /* Pods_LKWalletTests.framework */; };
+		D62065F31FF683A500141FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62065F21FF683A500141FCB /* AppDelegate.swift */; };
+		D62065F81FF683A500141FCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62065F61FF683A500141FCB /* Main.storyboard */; };
+		D62065FA1FF683A500141FCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62065F91FF683A500141FCB /* Assets.xcassets */; };
+		D62065FD1FF683A500141FCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62065FB1FF683A500141FCB /* LaunchScreen.storyboard */; };
+		D62066081FF683A500141FCB /* LKWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066071FF683A500141FCB /* LKWalletTests.swift */; };
+		D62066441FF6866F00141FCB /* TransactionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066191FF6866E00141FCB /* TransactionListCell.swift */; };
+		D62066451FF6866F00141FCB /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620661A1FF6866E00141FCB /* TransactionViewController.swift */; };
+		D62066461FF6866F00141FCB /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620661B1FF6866E00141FCB /* TransactionViewModel.swift */; };
+		D62066471FF6866F00141FCB /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620661D1FF6866E00141FCB /* BaseTableViewController.swift */; };
+		D62066481FF6866F00141FCB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620661E1FF6866E00141FCB /* BaseViewController.swift */; };
+		D62066491FF6866F00141FCB /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066201FF6866E00141FCB /* AccountManager.swift */; };
+		D620664A1FF6866F00141FCB /* EthereumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066211FF6866E00141FCB /* EthereumManager.swift */; };
+		D620664B1FF6866F00141FCB /* TraceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066221FF6866E00141FCB /* TraceManager.swift */; };
+		D620664C1FF6866F00141FCB /* TradeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066231FF6866E00141FCB /* TradeManager.swift */; };
+		D620664D1FF6866F00141FCB /* TradeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066241FF6866E00141FCB /* TradeNetworkManager.swift */; };
+		D620664E1FF6866F00141FCB /* TradeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066251FF6866E00141FCB /* TradeRequestManager.swift */; };
+		D62066501FF6866F00141FCB /* CommonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066281FF6866E00141FCB /* CommonManager.swift */; };
+		D62066511FF6866F00141FCB /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066291FF6866E00141FCB /* ConfigManager.swift */; };
+		D62066521FF6866F00141FCB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620662B1FF6866E00141FCB /* AboutViewController.swift */; };
+		D62066531FF6866F00141FCB /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620662E1FF6866E00141FCB /* Double.swift */; };
+		D62066551FF6866F00141FCB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066301FF6866E00141FCB /* UIImage.swift */; };
+		D62066581FF6866F00141FCB /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066361FF6866E00141FCB /* Account.swift */; };
+		D62066591FF6866F00141FCB /* AccountListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066381FF6866E00141FCB /* AccountListCell.swift */; };
+		D620665A1FF6866F00141FCB /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620663A1FF6866E00141FCB /* AccountViewController.swift */; };
+		D620665B1FF6866F00141FCB /* AddAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620663B1FF6866E00141FCB /* AddAccountController.swift */; };
+		D620665E1FF6866F00141FCB /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620663E1FF6866E00141FCB /* QRCodeViewController.swift */; };
+		D620665F1FF6866F00141FCB /* QRShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620663F1FF6866E00141FCB /* QRShowViewController.swift */; };
+		D62066601FF6866F00141FCB /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066411FF6866E00141FCB /* AccountViewModel.swift */; };
+		D8824689CD5A19F687B2B89E /* Pods_LKWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CA89828B3D9E69081CBCBB /* Pods_LKWallet.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D62066041FF683A500141FCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D62065E71FF683A500141FCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D62065EE1FF683A500141FCB;
+			remoteInfo = LKWallet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		27774F6C2B61B63E663F9D6D /* Pods-LKWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LKWallet/Pods-LKWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		28CA89828B3D9E69081CBCBB /* Pods_LKWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LKWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F4575FAE0FF038C3C417363 /* Pods-LKWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKWallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-LKWallet/Pods-LKWallet.release.xcconfig"; sourceTree = "<group>"; };
+		354650AB96E1DD2F7FBB66B8 /* Pods_LKWalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LKWalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77F391E551F1347FDE8F8681 /* Pods-LKWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKWalletTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LKWalletTests/Pods-LKWalletTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B207625288599FAD6E01119 /* Pods-LKWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKWalletTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LKWalletTests/Pods-LKWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D62065EF1FF683A500141FCB /* LKWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LKWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D62065F21FF683A500141FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D62065F71FF683A500141FCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D62065F91FF683A500141FCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D62065FC1FF683A500141FCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D62065FE1FF683A500141FCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D62066031FF683A500141FCB /* LKWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LKWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D62066071FF683A500141FCB /* LKWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKWalletTests.swift; sourceTree = "<group>"; };
+		D62066091FF683A500141FCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D62066191FF6866E00141FCB /* TransactionListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListCell.swift; sourceTree = "<group>"; };
+		D620661A1FF6866E00141FCB /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		D620661B1FF6866E00141FCB /* TransactionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		D620661D1FF6866E00141FCB /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		D620661E1FF6866E00141FCB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D62066201FF6866E00141FCB /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		D62066211FF6866E00141FCB /* EthereumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumManager.swift; sourceTree = "<group>"; };
+		D62066221FF6866E00141FCB /* TraceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceManager.swift; sourceTree = "<group>"; };
+		D62066231FF6866E00141FCB /* TradeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeManager.swift; sourceTree = "<group>"; };
+		D62066241FF6866E00141FCB /* TradeNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeNetworkManager.swift; sourceTree = "<group>"; };
+		D62066251FF6866E00141FCB /* TradeRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeRequestManager.swift; sourceTree = "<group>"; };
+		D62066281FF6866E00141FCB /* CommonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonManager.swift; sourceTree = "<group>"; };
+		D62066291FF6866E00141FCB /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		D620662B1FF6866E00141FCB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		D620662E1FF6866E00141FCB /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		D62066301FF6866E00141FCB /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		D62066361FF6866E00141FCB /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		D62066381FF6866E00141FCB /* AccountListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountListCell.swift; sourceTree = "<group>"; };
+		D620663A1FF6866E00141FCB /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		D620663B1FF6866E00141FCB /* AddAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountController.swift; sourceTree = "<group>"; };
+		D620663E1FF6866E00141FCB /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		D620663F1FF6866E00141FCB /* QRShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRShowViewController.swift; sourceTree = "<group>"; };
+		D62066411FF6866E00141FCB /* AccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D62065EC1FF683A500141FCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8824689CD5A19F687B2B89E /* Pods_LKWallet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D62066001FF683A500141FCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DDCDB5174804B4843CE38CF /* Pods_LKWalletTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DBCA59B681972259987DED7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28CA89828B3D9E69081CBCBB /* Pods_LKWallet.framework */,
+				354650AB96E1DD2F7FBB66B8 /* Pods_LKWalletTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF1E14BFD51E3FEDAB5CC27E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27774F6C2B61B63E663F9D6D /* Pods-LKWallet.debug.xcconfig */,
+				2F4575FAE0FF038C3C417363 /* Pods-LKWallet.release.xcconfig */,
+				7B207625288599FAD6E01119 /* Pods-LKWalletTests.debug.xcconfig */,
+				77F391E551F1347FDE8F8681 /* Pods-LKWalletTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D62065E61FF683A500141FCB = {
+			isa = PBXGroup;
+			children = (
+				D62065F11FF683A500141FCB /* LKWallet */,
+				D62066061FF683A500141FCB /* LKWalletTests */,
+				D62065F01FF683A500141FCB /* Products */,
+				AF1E14BFD51E3FEDAB5CC27E /* Pods */,
+				2DBCA59B681972259987DED7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D62065F01FF683A500141FCB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D62065EF1FF683A500141FCB /* LKWallet.app */,
+				D62066031FF683A500141FCB /* LKWalletTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D62065F11FF683A500141FCB /* LKWallet */ = {
+			isa = PBXGroup;
+			children = (
+				D62065F21FF683A500141FCB /* AppDelegate.swift */,
+				D62066271FF6866E00141FCB /* Common */,
+				D620661C1FF6866E00141FCB /* Base */,
+				D62066341FF6866E00141FCB /* Account */,
+				D620661F1FF6866E00141FCB /* Manager */,
+				D62066171FF6866E00141FCB /* Transaction */,
+				D620662A1FF6866E00141FCB /* Settings */,
+				D620662D1FF6866E00141FCB /* Extension */,
+				D62066141FF6860300141FCB /* StoryBoards */,
+				D62066131FF6847A00141FCB /* Supporting Files */,
+			);
+			path = LKWallet;
+			sourceTree = "<group>";
+		};
+		D62066061FF683A500141FCB /* LKWalletTests */ = {
+			isa = PBXGroup;
+			children = (
+				D62066071FF683A500141FCB /* LKWalletTests.swift */,
+				D62066091FF683A500141FCB /* Info.plist */,
+			);
+			path = LKWalletTests;
+			sourceTree = "<group>";
+		};
+		D62066131FF6847A00141FCB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D62065F91FF683A500141FCB /* Assets.xcassets */,
+				D62065FB1FF683A500141FCB /* LaunchScreen.storyboard */,
+				D62065FE1FF683A500141FCB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D62066141FF6860300141FCB /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				D62065F61FF683A500141FCB /* Main.storyboard */,
+			);
+			name = StoryBoards;
+			sourceTree = "<group>";
+		};
+		D62066171FF6866E00141FCB /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				D62066191FF6866E00141FCB /* TransactionListCell.swift */,
+				D620661A1FF6866E00141FCB /* TransactionViewController.swift */,
+				D620661B1FF6866E00141FCB /* TransactionViewModel.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		D620661C1FF6866E00141FCB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D620661D1FF6866E00141FCB /* BaseTableViewController.swift */,
+				D620661E1FF6866E00141FCB /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D620661F1FF6866E00141FCB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D62066201FF6866E00141FCB /* AccountManager.swift */,
+				D62066211FF6866E00141FCB /* EthereumManager.swift */,
+				D62066221FF6866E00141FCB /* TraceManager.swift */,
+				D62066231FF6866E00141FCB /* TradeManager.swift */,
+				D62066241FF6866E00141FCB /* TradeNetworkManager.swift */,
+				D62066251FF6866E00141FCB /* TradeRequestManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		D62066271FF6866E00141FCB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D62066281FF6866E00141FCB /* CommonManager.swift */,
+				D62066291FF6866E00141FCB /* ConfigManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D620662A1FF6866E00141FCB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D620662B1FF6866E00141FCB /* AboutViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D620662D1FF6866E00141FCB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D620662E1FF6866E00141FCB /* Double.swift */,
+				D62066301FF6866E00141FCB /* UIImage.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D62066341FF6866E00141FCB /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D62066351FF6866E00141FCB /* Model */,
+				D62066371FF6866E00141FCB /* View */,
+				D62066391FF6866E00141FCB /* ViewController */,
+				D62066401FF6866E00141FCB /* ViewModel */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		D62066351FF6866E00141FCB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D62066361FF6866E00141FCB /* Account.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D62066371FF6866E00141FCB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D62066381FF6866E00141FCB /* AccountListCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D62066391FF6866E00141FCB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D620663A1FF6866E00141FCB /* AccountViewController.swift */,
+				D620663B1FF6866E00141FCB /* AddAccountController.swift */,
+				D620663E1FF6866E00141FCB /* QRCodeViewController.swift */,
+				D620663F1FF6866E00141FCB /* QRShowViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D62066401FF6866E00141FCB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D62066411FF6866E00141FCB /* AccountViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D62065EE1FF683A500141FCB /* LKWallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D620660C1FF683A500141FCB /* Build configuration list for PBXNativeTarget "LKWallet" */;
+			buildPhases = (
+				A15F3048F4CD484B2559EC80 /* [CP] Check Pods Manifest.lock */,
+				D62065EB1FF683A500141FCB /* Sources */,
+				D62065EC1FF683A500141FCB /* Frameworks */,
+				D62065ED1FF683A500141FCB /* Resources */,
+				A504E08DCB45E2681BC291A3 /* [CP] Embed Pods Frameworks */,
+				96DB21E0D261AB55E2223696 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LKWallet;
+			productName = LKWallet;
+			productReference = D62065EF1FF683A500141FCB /* LKWallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D62066021FF683A500141FCB /* LKWalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D620660F1FF683A500141FCB /* Build configuration list for PBXNativeTarget "LKWalletTests" */;
+			buildPhases = (
+				5B5B287A83322FEF0C0277F4 /* [CP] Check Pods Manifest.lock */,
+				D62065FF1FF683A500141FCB /* Sources */,
+				D62066001FF683A500141FCB /* Frameworks */,
+				D62066011FF683A500141FCB /* Resources */,
+				ED6FC5D500AB5F98CF32348C /* [CP] Embed Pods Frameworks */,
+				A5BE900D5774F6BDEE5AA6D7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D62066051FF683A500141FCB /* PBXTargetDependency */,
+			);
+			name = LKWalletTests;
+			productName = LKWalletTests;
+			productReference = D62066031FF683A500141FCB /* LKWalletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D62065E71FF683A500141FCB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Tuluobo;
+				TargetAttributes = {
+					D62065EE1FF683A500141FCB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					D62066021FF683A500141FCB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D62065EE1FF683A500141FCB;
+					};
+				};
+			};
+			buildConfigurationList = D62065EA1FF683A500141FCB /* Build configuration list for PBXProject "LKWallet" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D62065E61FF683A500141FCB;
+			productRefGroup = D62065F01FF683A500141FCB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D62065EE1FF683A500141FCB /* LKWallet */,
+				D62066021FF683A500141FCB /* LKWalletTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D62065ED1FF683A500141FCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D62065FD1FF683A500141FCB /* LaunchScreen.storyboard in Resources */,
+				D62065FA1FF683A500141FCB /* Assets.xcassets in Resources */,
+				D62065F81FF683A500141FCB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D62066011FF683A500141FCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B5B287A83322FEF0C0277F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LKWalletTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96DB21E0D261AB55E2223696 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKWallet/Pods-LKWallet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A15F3048F4CD484B2559EC80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LKWallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A504E08DCB45E2681BC291A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LKWallet/Pods-LKWallet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Amplitude-iOS/Amplitude_iOS.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupController/PopupController.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Amplitude_iOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKWallet/Pods-LKWallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5BE900D5774F6BDEE5AA6D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKWalletTests/Pods-LKWalletTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED6FC5D500AB5F98CF32348C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKWalletTests/Pods-LKWalletTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D62065EB1FF683A500141FCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D62066451FF6866F00141FCB /* TransactionViewController.swift in Sources */,
+				D620665B1FF6866F00141FCB /* AddAccountController.swift in Sources */,
+				D620665A1FF6866F00141FCB /* AccountViewController.swift in Sources */,
+				D620665F1FF6866F00141FCB /* QRShowViewController.swift in Sources */,
+				D62066501FF6866F00141FCB /* CommonManager.swift in Sources */,
+				D62065F31FF683A500141FCB /* AppDelegate.swift in Sources */,
+				D62066591FF6866F00141FCB /* AccountListCell.swift in Sources */,
+				D62066601FF6866F00141FCB /* AccountViewModel.swift in Sources */,
+				D62066581FF6866F00141FCB /* Account.swift in Sources */,
+				D62066471FF6866F00141FCB /* BaseTableViewController.swift in Sources */,
+				D62066551FF6866F00141FCB /* UIImage.swift in Sources */,
+				D620664C1FF6866F00141FCB /* TradeManager.swift in Sources */,
+				D62066441FF6866F00141FCB /* TransactionListCell.swift in Sources */,
+				D620664E1FF6866F00141FCB /* TradeRequestManager.swift in Sources */,
+				D62066531FF6866F00141FCB /* Double.swift in Sources */,
+				D62066491FF6866F00141FCB /* AccountManager.swift in Sources */,
+				D620664B1FF6866F00141FCB /* TraceManager.swift in Sources */,
+				D62066481FF6866F00141FCB /* BaseViewController.swift in Sources */,
+				D62066521FF6866F00141FCB /* AboutViewController.swift in Sources */,
+				D62066511FF6866F00141FCB /* ConfigManager.swift in Sources */,
+				D620665E1FF6866F00141FCB /* QRCodeViewController.swift in Sources */,
+				D620664D1FF6866F00141FCB /* TradeNetworkManager.swift in Sources */,
+				D620664A1FF6866F00141FCB /* EthereumManager.swift in Sources */,
+				D62066461FF6866F00141FCB /* TransactionViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D62065FF1FF683A500141FCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D62066081FF683A500141FCB /* LKWalletTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D62066051FF683A500141FCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D62065EE1FF683A500141FCB /* LKWallet */;
+			targetProxy = D62066041FF683A500141FCB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D62065F61FF683A500141FCB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D62065F71FF683A500141FCB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D62065FB1FF683A500141FCB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D62065FC1FF683A500141FCB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D620660A1FF683A500141FCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D620660B1FF683A500141FCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D620660D1FF683A500141FCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27774F6C2B61B63E663F9D6D /* Pods-LKWallet.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QRC4C5SWY;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = LKWallet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.LKWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D620660E1FF683A500141FCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F4575FAE0FF038C3C417363 /* Pods-LKWallet.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QRC4C5SWY;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = LKWallet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.LKWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D62066101FF683A500141FCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B207625288599FAD6E01119 /* Pods-LKWalletTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QRC4C5SWY;
+				INFOPLIST_FILE = LKWalletTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.LKWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LKWallet.app/LKWallet";
+			};
+			name = Debug;
+		};
+		D62066111FF683A500141FCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77F391E551F1347FDE8F8681 /* Pods-LKWalletTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QRC4C5SWY;
+				INFOPLIST_FILE = LKWalletTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.LKWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LKWallet.app/LKWallet";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D62065EA1FF683A500141FCB /* Build configuration list for PBXProject "LKWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D620660A1FF683A500141FCB /* Debug */,
+				D620660B1FF683A500141FCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D620660C1FF683A500141FCB /* Build configuration list for PBXNativeTarget "LKWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D620660D1FF683A500141FCB /* Debug */,
+				D620660E1FF683A500141FCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D620660F1FF683A500141FCB /* Build configuration list for PBXNativeTarget "LKWalletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D62066101FF683A500141FCB /* Debug */,
+				D62066111FF683A500141FCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D62065E71FF683A500141FCB /* Project object */;
+}

@@ -1,7 +1,7 @@
 # 玩客/链克钱包 
 
 <p align="center">
-![](./screenshot/app_icon.png)
+    <img src="https://github.com/Tuluobo/LKWallet/blob/master/screenshot/app_icon.png" alt="LKWallet" title="LKWallet" />
 </p>
 
 ## 关于

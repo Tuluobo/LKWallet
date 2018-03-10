@@ -26,6 +26,7 @@ class AccountListCell: UITableViewCell {
     @IBOutlet weak var accountNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var hasWalletLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +42,7 @@ class AccountListCell: UITableViewCell {
         accountNameLabel.text = "账户"
         addressLabel.text = nil
         amountLabel.text = "0"
+        hasWalletLabel.text = "否"
         
         guard let viewModel = self.viewModel else {
             return
@@ -48,6 +50,7 @@ class AccountListCell: UITableViewCell {
         
         accountNameLabel.text = viewModel.account.name
         addressLabel.text = viewModel.account.address
+        hasWalletLabel.text = viewModel.account.hasWallet ? "是" : "无"
         
         viewModel.amountAction.apply().startWithResult { (result) in
             switch result {

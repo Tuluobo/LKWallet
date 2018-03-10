@@ -21,6 +21,8 @@ struct Trade {
     var timestamp: TimeInterval
     var hash: String
     var extra: String
+    var title: String
+    var orderId: String
     
     init(dict: [String: Any]) {
         self.type = TradeType(rawValue: dict["type"] as? Int ?? 0) ?? .out
@@ -30,6 +32,8 @@ struct Trade {
         self.timestamp = TimeInterval(dict["timestamp"] as? String ?? "0") ?? Date.timeIntervalBetween1970AndReferenceDate
         self.hash = dict["hash"] as? String ?? ""
         self.extra = dict["extra"] as? String ?? ""
+        self.title = dict["title"] as? String ?? ""
+        self.orderId = dict["order_id"] as? String ?? ""
     }
 }
 

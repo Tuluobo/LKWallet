@@ -39,7 +39,11 @@ class TransactionViewModel {
             return
         }
         self.currentPage = (type == .up) ? currentPage + 1 : 1
-        TradeRequestManager.shared.fetchTradeRecords(with: account, currentPage: currentPage) { (totalPage, data, error) in
+        TradeRequestManager.shared.fetchTradeRecords(with: account, currentPage: currentPage) { [weak self] (totalPage, data, error) in
+            guard let `self` = self else {
+                completion?(.failed("未知异常！"))
+                return
+            }
             if let err = error {
                 completion?(.failed("\(err.localizedDescription)"))
                 return
@@ -77,6 +81,4 @@ class TransactionViewModel {
         }
         return arr1 + arr2[index...]
     }
-    
-    
 }

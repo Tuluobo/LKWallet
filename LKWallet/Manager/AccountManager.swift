@@ -29,6 +29,11 @@ class AccountManager {
     
     func add(accounts: [Account]) -> Bool {
         var savedAccounts = queryAllAccount()
+        for index in (0..<savedAccounts.count).reversed() {
+            if accounts.contains(savedAccounts[index]) {
+                savedAccounts.remove(at: index)
+            }
+        }
         savedAccounts.append(contentsOf: accounts)
         return save(accounts: savedAccounts)
     }
@@ -36,7 +41,13 @@ class AccountManager {
     func delete(accounts: [Account]) -> Bool {
         var savedAccounts = queryAllAccount()
         for index in (0..<savedAccounts.count).reversed() {
-            if accounts.contains(savedAccounts[index]) {
+            let account = savedAccounts[index]
+            if accounts.contains(account) {
+                if account.hasWallet {
+                    if case .failure = OneKeyStore().delete(account: account) {
+                        return false
+                    }
+                }
                 savedAccounts.remove(at: index)
             }
         }

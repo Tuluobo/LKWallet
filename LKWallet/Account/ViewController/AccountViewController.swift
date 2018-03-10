@@ -14,6 +14,9 @@ private let kAccountListCell = "kAccountListCell"
 private let kAccountListToTradeSegue = "kAccountListToTradeSegue"
 
 class AccountViewController: BaseTableViewController {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     private var viewModels = [AccountViewModel]()
     
@@ -22,24 +25,35 @@ class AccountViewController: BaseTableViewController {
         
         TraceManager.shared.traceEvent(event: "account_enter")
         self.navigationItem.title = "玩客钱包"
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handlerImport(notification:)), name: NSNotification.Name(kOpenKeyStoreFileNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handlerAccountChange), name: NSNotification.Name(kAccountChangeNotification), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.loadData()
+    }
+    
+    private func loadData(isForce: Bool = false) {
         let newViewModels = AccountManager.manager.queryAllAccount().map(AccountViewModel.init)
-        if newViewModels != self.viewModels {
+        if isForce || newViewModels != self.viewModels {
             self.viewModels = newViewModels
             TraceManager.shared.traceEvent(event: "account_load_wallet", properties: ["walletTotal": self.viewModels.count])
             tableView.reloadData()
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModels.count
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let viewModel = viewModels[indexPath.item]
+        let viewModel = viewModels[indexPath.section]
         if let cell = tableView.dequeueReusableCell(withIdentifier: kAccountListCell, for: indexPath) as? AccountListCell {
             cell.delegate = self
             cell.viewModel = viewModel
@@ -49,11 +63,21 @@ class AccountViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 164.0
+        return 142.0
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: kAccountListToTradeSegue, sender: indexPath)
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 20.0
+        }
+        return 10.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == (viewModels.count - 1) {
+            return 20.0
+        }
+        return 10.0
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -61,25 +85,74 @@ class AccountViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let viewModel = viewModels[indexPath.item]
+        let viewModel = viewModels[indexPath.section]
         if editingStyle == .delete {
             if AccountManager.manager.delete(accounts: [viewModel.account]) {
-                viewModels.remove(at: indexPath.item)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                viewModels.remove(at: indexPath.section)
+                tableView.deleteSections([indexPath.section], with: .fade)
+            } else {
+                SVProgressHUD.showError(withStatus: "删除失败！")
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: kAccountListToTradeSegue, sender: indexPath)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier, identifier == kAccountListToTradeSegue {
             if let destVc = segue.destination as? TransactionViewController, let indexPath = sender as? IndexPath {
-                destVc.account = viewModels[indexPath.item].account
+                destVc.account = viewModels[indexPath.section].account
             }
         }
     }
 }
 
+// MARK: - 导入
+extension AccountViewController {
+    @objc private func handlerImport(notification: Notification) {
+        guard let userinfo = notification.userInfo as? [String: Any], let url = userinfo["fileUrl"] as? URL else {
+            return
+        }
+        let alertVc = UIAlertController(title: nil, message: "是否导入该文件？", preferredStyle: .alert)
+        alertVc.addAction(UIAlertAction(title: "导入", style: .default, handler: { (_) in
+            self.importKeyStoreFile(url: url)
+        }))
+        alertVc.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        present(alertVc, animated: true, completion: nil)
+    }
+    
+    private func importKeyStoreFile(url: URL) {
+        let result = OneKeyStore().importKeystore(path: url)
+        switch result {
+        case .success(let account):
+            var info = "导入成功！"
+            if AccountManager.manager.queryAllAccount().contains(account) {
+                info += "并替换为有文件的账户！"
+            }
+            if AccountManager.manager.add(accounts: [account]) {
+                SVProgressHUD.showSuccess(withStatus: info)
+                loadData(isForce: true)
+            } else {
+                SVProgressHUD.showSuccess(withStatus: "导入失败！")
+            }
+            self.navigationController?.popToRootViewController(animated: true)
+        case .failure(let error):
+            SVProgressHUD.showError(withStatus: "\(error.errorDescription)")
+        }
+    }
+}
+
+// MARK: - 账户改变
+extension AccountViewController {
+    @objc private func handlerAccountChange() {
+        loadData(isForce: true)
+    }
+}
+
+// MARK: - 二维码
 extension AccountViewController: AccountListCellDelegate {
     
     func accountListCell(_ cell: AccountListCell, show qrImage: UIImage) {

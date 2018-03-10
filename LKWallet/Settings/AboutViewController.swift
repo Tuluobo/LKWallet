@@ -20,9 +20,11 @@ import Alamofire
 class AboutViewController: BaseTableViewController {
     
     deinit {
+        productRequest?.delegate = nil
+        productRequest?.cancel()
         SKPaymentQueue.default().remove(self)
     }
-
+    
     @IBOutlet weak var versionLabel: UILabel!
     private var productRequest: SKProductsRequest?
     
@@ -42,7 +44,11 @@ class AboutViewController: BaseTableViewController {
         switch indexPath.item {
         case 1:
             self.removeAd()
+        case 2:
+            self.joinGroup()
         case 3:
+            self.openHelp()
+        case 4:
             self.mark()
         default:
             break
@@ -99,6 +105,22 @@ class AboutViewController: BaseTableViewController {
         
     }
     
+    private func joinGroup() {
+        let groupId = "570190348"
+        let groupKey = "421e6486c6e8c5a65231a951e5456bbaee3122dfae8d7ede1ca7d8a7bcead9d8"
+        let urlStr = "mqqapi://card/show_pslcard?src_type=internal&version=1&uin=\(groupId)&key=\(groupKey)&card_type=group&source=external"
+        guard let url = URL(string: urlStr) else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    private func openHelp() {
+        
+    }
+    
     private func removeAd() {
         if SKPaymentQueue.canMakePayments() {
             self.requestRemoveAdProduct()
@@ -115,7 +137,7 @@ class AboutViewController: BaseTableViewController {
     }
     
     private func verifyPurchaseWithPaymentTransaction(compeletion: ((Bool) -> Void)?) {
-        //从沙盒中获取交易凭证并且拼接成请求体数据
+        // 从沙盒中获取交易凭证并且拼接成请求体数据
         guard let receiptUrl = Bundle.main.appStoreReceiptURL, let receiptData = try? Data(contentsOf: receiptUrl) else {
             return
         }
@@ -124,8 +146,8 @@ class AboutViewController: BaseTableViewController {
         Alamofire.request(receiptURL, method: .post, parameters: bodyString, encoding: JSONEncoding.default).responseJSON { (response) in
             guard let result = response.result.value as? [String: Any],
                 let status = result["status"] as? Int, status == 0 else {
-                compeletion?(false)
-                return
+                    compeletion?(false)
+                    return
             }
             guard let receiptDict = result["receipt"] as? [String: Any],
                 let inAppDict = (receiptDict["in_app"] as? [[String: Any]])?.first,
@@ -137,16 +159,13 @@ class AboutViewController: BaseTableViewController {
             compeletion?(true)
         }
     }
-
+    
 }
 
 //MARK: - SKProductsRequestDelegate
 extension AboutViewController: SKProductsRequestDelegate {
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        productRequest?.delegate = nil
-        SVProgressHUD.dismiss()
-        
         let products = response.products
         guard products.count > 0 else {
             SVProgressHUD.showError(withStatus: "目前不能移除广告！")
@@ -165,19 +184,21 @@ extension AboutViewController: SKProductsRequestDelegate {
             SVProgressHUD.show()
         }))
         payAlert.addAction(UIAlertAction(title: "恢复购买", style: .default, handler: { (_) in
-            SKPaymentQueue.default().add(SKPayment(product: adProduct))
+            SKPaymentQueue.default().restoreCompletedTransactions()
             SVProgressHUD.show()
         }))
         self.present(payAlert, animated: true, completion: nil)
     }
     
     func request(_ request: SKRequest, didFailWithError error: Error) {
-        productRequest?.delegate = nil
+        request.delegate = nil
+        request.cancel()
         SVProgressHUD.showError(withStatus: "Apple 服务不在服务区！")
     }
     
     func requestDidFinish(_ request: SKRequest) {
-        productRequest?.delegate = nil
+        request.delegate = nil
+        request.cancel()
         SVProgressHUD.dismiss()
     }
 }
@@ -186,7 +207,6 @@ extension AboutViewController: SKProductsRequestDelegate {
 extension AboutViewController: SKPaymentTransactionObserver {
     // 监听购买结果
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        SVProgressHUD.dismiss()
         transactions.forEach { (transaction) in
             switch transaction.transactionState {
             case .purchased, .restored:
@@ -195,6 +215,8 @@ extension AboutViewController: SKPaymentTransactionObserver {
                         UserDefaults.standard.set(true, forKey: kRemoveAdProductKey)
                         self.isHiddenAdBanner.value = true
                         SVProgressHUD.showSuccess(withStatus: "广告去除成功！")
+                    } else {
+                        SVProgressHUD.showError(withStatus: "购买验证失败，如果您确实支付成功，请选择恢复购买！")
                     }
                     queue.finishTransaction(transaction)
                 }
@@ -205,5 +227,9 @@ extension AboutViewController: SKPaymentTransactionObserver {
                 break
             }
         }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        SVProgressHUD.showError(withStatus: "\(error.localizedDescription)")
     }
 }

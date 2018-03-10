@@ -16,7 +16,7 @@ import MJRefresh
 private let kTradeCellKey = "kTradeCellKey"
 
 class TransactionViewController: BaseTableViewController {
-
+    
     var account: Account?
     
     fileprivate var viewModel: TransactionViewModel?
@@ -26,7 +26,7 @@ class TransactionViewController: BaseTableViewController {
         super.viewDidLoad()
         TraceManager.shared.traceEvent(event: "account_detail_enter", properties: ["account": account?.dictionary() ?? []])
         
-        self.title = account?.name ?? "Error"
+        self.navigationItem.title = self.account?.name ?? "账户出错"
         self.view.addSubview(self.emptyView)
         self.emptyView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
@@ -66,7 +66,7 @@ class TransactionViewController: BaseTableViewController {
                 case .success:
                     self?.tableView.reloadData()
                     self?.tableView.mj_footer.endRefreshing()
-                
+                    
                 }
             })
         })
@@ -74,11 +74,11 @@ class TransactionViewController: BaseTableViewController {
         // enter refresh
         self.tableView.mj_header.beginRefreshing()
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.trades.count ?? 0
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: kTradeCellKey, for: indexPath) as? TransactionListCell else {
@@ -86,6 +86,64 @@ class TransactionViewController: BaseTableViewController {
         }
         cell.trade = viewModel?.trades[indexPath.item]
         return cell
+    }
+    
+    @IBAction func clickedMoreBtn(_ sender: UIBarButtonItem) {
+        guard let account = account else {
+            SVProgressHUD.showError(withStatus: "账户异常，请稍后再试！")
+            return
+        }
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "编辑账户", style: .default, handler: { (_) in
+            self.performSegue(withIdentifier: kEditAccountSegueKey, sender: nil)
+        }))
+        if account.hasWallet {
+            actionSheet.addAction(UIAlertAction(title: "导出账户文件", style: .default, handler: { [weak self] (_) in
+                self?.exportWallet()
+            }))
+            actionSheet.addAction(UIAlertAction(title: "修改账户密码", style: .default, handler: { (_) in
+                self.performSegue(withIdentifier: kResetPasswdSegueKey, sender: nil)
+            }))
+        }
+        actionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    /// 分享导出
+    private func exportWallet() {
+        
+        guard let account = account else {
+            SVProgressHUD.showError(withStatus: "账户异常，请稍后再试！")
+            return
+        }
+        switch OneKeyStore().export(account: account) {
+        case .success(let path):
+            let fileURL = URL(fileURLWithPath: path)
+            let activityVC = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+            
+            if let popover = activityVC.popoverPresentationController {
+                popover.sourceView = self.view
+                popover.permittedArrowDirections = .any
+            }
+            self.present(activityVC, animated: true, completion: nil)
+        case .failure(let error):
+            SVProgressHUD.showError(withStatus: "账户异常，请重新尝试！Error: \(error.errorDescription)")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        if identifier == kEditAccountSegueKey {
+            if let vc = segue.destination as? EditAccountViewController {
+                vc.account = account
+            }
+        } else if identifier == kResetPasswdSegueKey {
+            if let vc = segue.destination as? ResetPasswdTableViewController {
+                vc.account = account
+            }
+        }
     }
 }
 

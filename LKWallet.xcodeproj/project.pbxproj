@@ -22,9 +22,7 @@
 		D620664A1FF6866F00141FCB /* EthereumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066211FF6866E00141FCB /* EthereumManager.swift */; };
 		D620664B1FF6866F00141FCB /* TraceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066221FF6866E00141FCB /* TraceManager.swift */; };
 		D620664C1FF6866F00141FCB /* TradeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066231FF6866E00141FCB /* TradeManager.swift */; };
-		D620664D1FF6866F00141FCB /* TradeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066241FF6866E00141FCB /* TradeNetworkManager.swift */; };
 		D620664E1FF6866F00141FCB /* TradeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066251FF6866E00141FCB /* TradeRequestManager.swift */; };
-		D62066501FF6866F00141FCB /* CommonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066281FF6866E00141FCB /* CommonManager.swift */; };
 		D62066511FF6866F00141FCB /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066291FF6866E00141FCB /* ConfigManager.swift */; };
 		D62066521FF6866F00141FCB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620662B1FF6866E00141FCB /* AboutViewController.swift */; };
 		D62066531FF6866F00141FCB /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620662E1FF6866E00141FCB /* Double.swift */; };
@@ -36,6 +34,12 @@
 		D620665E1FF6866F00141FCB /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620663E1FF6866E00141FCB /* QRCodeViewController.swift */; };
 		D620665F1FF6866F00141FCB /* QRShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620663F1FF6866E00141FCB /* QRShowViewController.swift */; };
 		D62066601FF6866F00141FCB /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62066411FF6866E00141FCB /* AccountViewModel.swift */; };
+		D6CF760C2053DD7A00026413 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CF760A2053DD7900026413 /* Transaction.storyboard */; };
+		D6CF760E2053DDEC00026413 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CF760D2053DDEC00026413 /* UIView.swift */; };
+		D6CF76142053E00B00026413 /* ResetPasswdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CF76132053E00B00026413 /* ResetPasswdTableViewController.swift */; };
+		D6CF76162053E02700026413 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CF76152053E02700026413 /* EditAccountViewController.swift */; };
+		D6CF761A2053E16900026413 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CF76182053E16900026413 /* KeyStore.swift */; };
+		D6CF761B2053E16900026413 /* OneKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CF76192053E16900026413 /* OneKeyStore.swift */; };
 		D8824689CD5A19F687B2B89E /* Pods_LKWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CA89828B3D9E69081CBCBB /* Pods_LKWallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,9 +78,7 @@
 		D62066211FF6866E00141FCB /* EthereumManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumManager.swift; sourceTree = "<group>"; };
 		D62066221FF6866E00141FCB /* TraceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceManager.swift; sourceTree = "<group>"; };
 		D62066231FF6866E00141FCB /* TradeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeManager.swift; sourceTree = "<group>"; };
-		D62066241FF6866E00141FCB /* TradeNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeNetworkManager.swift; sourceTree = "<group>"; };
 		D62066251FF6866E00141FCB /* TradeRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeRequestManager.swift; sourceTree = "<group>"; };
-		D62066281FF6866E00141FCB /* CommonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonManager.swift; sourceTree = "<group>"; };
 		D62066291FF6866E00141FCB /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		D620662B1FF6866E00141FCB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D620662E1FF6866E00141FCB /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -88,6 +90,12 @@
 		D620663E1FF6866E00141FCB /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		D620663F1FF6866E00141FCB /* QRShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRShowViewController.swift; sourceTree = "<group>"; };
 		D62066411FF6866E00141FCB /* AccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		D6CF760B2053DD7900026413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Transaction.storyboard; sourceTree = "<group>"; };
+		D6CF760D2053DDEC00026413 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		D6CF76132053E00B00026413 /* ResetPasswdTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswdTableViewController.swift; sourceTree = "<group>"; };
+		D6CF76152053E02700026413 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		D6CF76182053E16900026413 /* KeyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
+		D6CF76192053E16900026413 /* OneKeyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneKeyStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,10 +164,11 @@
 				D62065F21FF683A500141FCB /* AppDelegate.swift */,
 				D62066271FF6866E00141FCB /* Common */,
 				D620661C1FF6866E00141FCB /* Base */,
+				D6CF76172053E16900026413 /* Wallet */,
 				D62066341FF6866E00141FCB /* Account */,
-				D620661F1FF6866E00141FCB /* Manager */,
-				D62066171FF6866E00141FCB /* Transaction */,
 				D620662A1FF6866E00141FCB /* Settings */,
+				D62066171FF6866E00141FCB /* Transaction */,
+				D620661F1FF6866E00141FCB /* Manager */,
 				D620662D1FF6866E00141FCB /* Extension */,
 				D62066141FF6860300141FCB /* StoryBoards */,
 				D62066131FF6847A00141FCB /* Supporting Files */,
@@ -190,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				D62065F61FF683A500141FCB /* Main.storyboard */,
+				D6CF760A2053DD7900026413 /* Transaction.storyboard */,
 			);
 			name = StoryBoards;
 			sourceTree = "<group>";
@@ -197,8 +207,8 @@
 		D62066171FF6866E00141FCB /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
-				D62066191FF6866E00141FCB /* TransactionListCell.swift */,
 				D620661A1FF6866E00141FCB /* TransactionViewController.swift */,
+				D62066191FF6866E00141FCB /* TransactionListCell.swift */,
 				D620661B1FF6866E00141FCB /* TransactionViewModel.swift */,
 			);
 			path = Transaction;
@@ -217,11 +227,10 @@
 			isa = PBXGroup;
 			children = (
 				D62066201FF6866E00141FCB /* AccountManager.swift */,
-				D62066211FF6866E00141FCB /* EthereumManager.swift */,
-				D62066221FF6866E00141FCB /* TraceManager.swift */,
 				D62066231FF6866E00141FCB /* TradeManager.swift */,
-				D62066241FF6866E00141FCB /* TradeNetworkManager.swift */,
 				D62066251FF6866E00141FCB /* TradeRequestManager.swift */,
+				D62066221FF6866E00141FCB /* TraceManager.swift */,
+				D62066211FF6866E00141FCB /* EthereumManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -229,7 +238,6 @@
 		D62066271FF6866E00141FCB /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				D62066281FF6866E00141FCB /* CommonManager.swift */,
 				D62066291FF6866E00141FCB /* ConfigManager.swift */,
 			);
 			path = Common;
@@ -248,6 +256,7 @@
 			children = (
 				D620662E1FF6866E00141FCB /* Double.swift */,
 				D62066301FF6866E00141FCB /* UIImage.swift */,
+				D6CF760D2053DDEC00026413 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -255,10 +264,10 @@
 		D62066341FF6866E00141FCB /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				D62066351FF6866E00141FCB /* Model */,
+				D62066401FF6866E00141FCB /* ViewModel */,
 				D62066371FF6866E00141FCB /* View */,
 				D62066391FF6866E00141FCB /* ViewController */,
-				D62066401FF6866E00141FCB /* ViewModel */,
+				D62066351FF6866E00141FCB /* Model */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -286,6 +295,8 @@
 				D620663B1FF6866E00141FCB /* AddAccountController.swift */,
 				D620663E1FF6866E00141FCB /* QRCodeViewController.swift */,
 				D620663F1FF6866E00141FCB /* QRShowViewController.swift */,
+				D6CF76152053E02700026413 /* EditAccountViewController.swift */,
+				D6CF76132053E00B00026413 /* ResetPasswdTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -296,6 +307,15 @@
 				D62066411FF6866E00141FCB /* AccountViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6CF76172053E16900026413 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				D6CF76182053E16900026413 /* KeyStore.swift */,
+				D6CF76192053E16900026413 /* OneKeyStore.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +375,11 @@
 					D62065EE1FF683A500141FCB = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					D62066021FF683A500141FCB = {
 						CreatedOnToolsVersion = 9.2;
@@ -390,6 +415,7 @@
 				D62065FD1FF683A500141FCB /* LaunchScreen.storyboard in Resources */,
 				D62065FA1FF683A500141FCB /* Assets.xcassets in Resources */,
 				D62065F81FF683A500141FCB /* Main.storyboard in Resources */,
+				D6CF760C2053DD7A00026413 /* Transaction.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,20 +553,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6CF760E2053DDEC00026413 /* UIView.swift in Sources */,
+				D6CF761A2053E16900026413 /* KeyStore.swift in Sources */,
 				D62066451FF6866F00141FCB /* TransactionViewController.swift in Sources */,
 				D620665B1FF6866F00141FCB /* AddAccountController.swift in Sources */,
 				D620665A1FF6866F00141FCB /* AccountViewController.swift in Sources */,
 				D620665F1FF6866F00141FCB /* QRShowViewController.swift in Sources */,
-				D62066501FF6866F00141FCB /* CommonManager.swift in Sources */,
 				D62065F31FF683A500141FCB /* AppDelegate.swift in Sources */,
 				D62066591FF6866F00141FCB /* AccountListCell.swift in Sources */,
 				D62066601FF6866F00141FCB /* AccountViewModel.swift in Sources */,
+				D6CF76162053E02700026413 /* EditAccountViewController.swift in Sources */,
 				D62066581FF6866F00141FCB /* Account.swift in Sources */,
 				D62066471FF6866F00141FCB /* BaseTableViewController.swift in Sources */,
 				D62066551FF6866F00141FCB /* UIImage.swift in Sources */,
 				D620664C1FF6866F00141FCB /* TradeManager.swift in Sources */,
 				D62066441FF6866F00141FCB /* TransactionListCell.swift in Sources */,
+				D6CF761B2053E16900026413 /* OneKeyStore.swift in Sources */,
 				D620664E1FF6866F00141FCB /* TradeRequestManager.swift in Sources */,
+				D6CF76142053E00B00026413 /* ResetPasswdTableViewController.swift in Sources */,
 				D62066531FF6866F00141FCB /* Double.swift in Sources */,
 				D62066491FF6866F00141FCB /* AccountManager.swift in Sources */,
 				D620664B1FF6866F00141FCB /* TraceManager.swift in Sources */,
@@ -548,7 +578,6 @@
 				D62066521FF6866F00141FCB /* AboutViewController.swift in Sources */,
 				D62066511FF6866F00141FCB /* ConfigManager.swift in Sources */,
 				D620665E1FF6866F00141FCB /* QRCodeViewController.swift in Sources */,
-				D620664D1FF6866F00141FCB /* TradeNetworkManager.swift in Sources */,
 				D620664A1FF6866F00141FCB /* EthereumManager.swift in Sources */,
 				D62066461FF6866F00141FCB /* TransactionViewModel.swift in Sources */,
 			);
@@ -587,6 +616,14 @@
 				D62065FC1FF683A500141FCB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D6CF760A2053DD7900026413 /* Transaction.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6CF760B2053DD7900026413 /* Base */,
+			);
+			name = Transaction.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 基础配置
         ConfigManager.shared.setup()
-        // FIX: 修复数据存储
-        CommonManager.shared.setupFix()
         
         return true
     }
@@ -42,6 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let scheme = url.scheme, scheme == "file" {
+            NotificationCenter.default.post(name: Notification.Name(kOpenKeyStoreFileNotification), object: nil, userInfo: ["fileUrl": url])
+            return true
+        }
+        return false
     }
 }
 

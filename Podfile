@@ -4,17 +4,17 @@ inhibit_all_warnings!
 use_frameworks!
 
 target 'LKWallet' do
-    pod 'Alamofire', '~> 4.5'
+    pod 'Alamofire', '~> 4.6'
     pod 'SVProgressHUD', '~> 2.2'
     pod 'SnapKit', '~> 4.0.0'
-    pod 'ReactiveSwift', '~> 3.0.0-alpha.1'
-    pod 'ReactiveCocoa', '~> 7.0.0-alpha.2'
+    pod 'ReactiveSwift', '~> 3.1.0'
+    pod 'ReactiveCocoa', '~> 7.1.0'
     pod 'MJRefresh', '~> 3.1.15'
-    pod 'CryptoSwift', '~> 0.8.0'
+    pod 'CryptoSwift', '~> 0.8.3'
     pod 'PopupController', '~> 0.2.0'
     pod 'Geth', '~> 1.7.2'
     # 统计和广告
-    pod 'Google-Mobile-Ads-SDK', '~> 7.25.0'
+    pod 'Google-Mobile-Ads-SDK', '~> 7.29.0'
     pod 'Amplitude-iOS', '~> 4.0.4'
     pod 'Fabric', '~> 1.7.2'
     pod 'Crashlytics', '~> 3.9.3'

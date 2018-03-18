@@ -108,6 +108,21 @@ class AccountViewController: BaseTableViewController {
             }
         }
     }
+    
+    @IBAction func clickedAddButton(_ sender: UIBarButtonItem) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "添加账户", style: .default, handler: { (_) in
+            self.performSegue(withIdentifier: kAddAccountSegueKey, sender: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "创建新账户", style: .default, handler: { (_) in
+            self.performSegue(withIdentifier: kCreateAccountSegueKey, sender: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "导入原有账户", style: .default, handler: { (_) in
+            self.performSegue(withIdentifier: kImportAccountSegueKey, sender: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        present(actionSheet, animated: true, completion: nil)
+    }
 }
 
 // MARK: - 导入
@@ -167,3 +182,4 @@ extension AccountViewController: AccountListCellDelegate {
             .show(QRShowViewController(image: qrImage))
     }
 }
+

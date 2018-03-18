@@ -1,7 +1,7 @@
 # 玩客/链克钱包 
 
 <p align="center">
-    <img src="https://github.com/Tuluobo/LKWallet/blob/master/screenshot/app_icon.png" alt="LKWallet" title="LKWallet" />
+    <img src="https://github.com/Tuluobo/LKWallet/blob/master/screenshot/app_icon.png" alt="LKWallet" title="LKWallet" /><br />
     <a href="https://travis-ci.org/Tuluobo/LKWallet"><img src="https://travis-ci.org/Tuluobo/LKWallet.svg?branch=master"></a>
     <a href="http://weibo.com/210101276"><img src="https://img.shields.io/badge/weibo-@秃萝卜-yellow.svg?style=flat"></a>
 </p>

@@ -63,7 +63,8 @@ class AccountViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 142.0
+        let viewModel = viewModels[indexPath.section]
+        return viewModel.cellClass().preferredDimension(for: viewModel, in: tableView)
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -180,6 +181,13 @@ extension AccountViewController: AccountListCellDelegate {
                 ]
             )
             .show(QRShowViewController(image: qrImage))
+    }
+    
+    func accountListCell(_ cell: AccountListCell, clickedTransactionWith account: Account) {
+        guard let sendTransactionViewController = UIStoryboard(name: "Transfer", bundle: nil).instantiateInitialViewController() else {
+            return
+        }
+        self.navigationController?.present(sendTransactionViewController, animated: true, completion: nil)
     }
 }
 

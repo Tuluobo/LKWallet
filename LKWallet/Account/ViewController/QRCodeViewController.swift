@@ -10,9 +10,15 @@ import UIKit
 import AVKit
 import SVProgressHUD
 
+protocol QRCodeViewControllerDelegate: class {
+    func handleQRData(viewController: QRCodeViewController, string: String?)
+}
+
 class QRCodeViewController: BaseViewController {
 
-    var height: CGFloat!
+    weak var delegate: QRCodeViewControllerDelegate?
+    
+    private var height: CGFloat!
 
     @IBOutlet weak var scanLineImageView: UIImageView!
     @IBOutlet weak var scanLineTopCons: NSLayoutConstraint!
@@ -100,24 +106,7 @@ class QRCodeViewController: BaseViewController {
     }
     
     fileprivate func handleQRData(string: String?) {
-        guard let accountString = string else {
-            SVProgressHUD.showError(withStatus: "没有检测到二维码信息！")
-            return
-        }
-        let account = Account(name: nil, address: accountString)
-        guard AccountManager.manager.verify(account: account) else {
-            SVProgressHUD.showError(withStatus: "账号格式不正确！")
-            return
-        }
-        if AccountManager.manager.queryAllAccount().contains(account) {
-            SVProgressHUD.showError(withStatus: "此账号已添加，不能被再次添加！")
-            return
-        }
-        guard AccountManager.manager.add(accounts: [account]) else {
-            SVProgressHUD.showError(withStatus: "账号保存失败！")
-            return
-        }
-        SVProgressHUD.showSuccess(withStatus: "账号添加成功！")
+        delegate?.handleQRData(viewController: self, string: string)
         session.stopRunning()
         self.navigationController?.popToRootViewController(animated: true)
     }

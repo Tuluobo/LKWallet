@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IbY-Q6-B64">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Code View Controller-->
+        <scene sceneID="YmA-hk-8yG">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="IbY-Q6-B64" customClass="QRCodeViewController" customModule="LKWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lue-4O-qWl"/>
+                        <viewControllerLayoutGuide type="bottom" id="jNU-M4-Xcs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tES-wR-bQN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4r-EF-pZn">
+                                <rect key="frame" x="68" y="193.5" width="240" height="240"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ar-scan-corners" translatesAutoresizingMaskIntoConstraints="NO" id="eCL-1Q-hem">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scan_net" translatesAutoresizingMaskIntoConstraints="NO" id="zm5-a2-53m">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eCL-1Q-hem" firstAttribute="top" secondItem="w4r-EF-pZn" secondAttribute="top" id="2QA-O4-K6u"/>
+                                    <constraint firstItem="zm5-a2-53m" firstAttribute="leading" secondItem="w4r-EF-pZn" secondAttribute="leading" id="Cff-O5-ios"/>
+                                    <constraint firstAttribute="trailing" secondItem="zm5-a2-53m" secondAttribute="trailing" id="DcJ-Ck-N9U"/>
+                                    <constraint firstAttribute="height" constant="240" id="UZP-7q-HaN"/>
+                                    <constraint firstItem="eCL-1Q-hem" firstAttribute="leading" secondItem="w4r-EF-pZn" secondAttribute="leading" id="fN7-rt-pmG"/>
+                                    <constraint firstItem="zm5-a2-53m" firstAttribute="top" secondItem="w4r-EF-pZn" secondAttribute="top" id="i5t-gv-gzF"/>
+                                    <constraint firstAttribute="width" constant="240" id="i9M-wj-4K0"/>
+                                    <constraint firstAttribute="bottom" secondItem="eCL-1Q-hem" secondAttribute="bottom" id="s99-7b-kAg"/>
+                                    <constraint firstItem="zm5-a2-53m" firstAttribute="height" secondItem="w4r-EF-pZn" secondAttribute="height" id="xO4-EA-pWR"/>
+                                    <constraint firstAttribute="trailing" secondItem="eCL-1Q-hem" secondAttribute="trailing" id="y0J-58-BqS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="w4r-EF-pZn" firstAttribute="centerY" secondItem="tES-wR-bQN" secondAttribute="centerY" constant="-20" id="oUP-28-jzY"/>
+                            <constraint firstItem="w4r-EF-pZn" firstAttribute="centerX" secondItem="tES-wR-bQN" secondAttribute="centerX" id="tEb-bR-Lwe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MKO-b2-A1X"/>
+                    </view>
+                    <connections>
+                        <outlet property="scanLineHeightCons" destination="UZP-7q-HaN" id="aJi-lw-JD1"/>
+                        <outlet property="scanLineImageView" destination="zm5-a2-53m" id="1qC-zR-gn5"/>
+                        <outlet property="scanLineTopCons" destination="i5t-gv-gzF" id="9CB-kR-Wbi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ff4-FL-ewk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2633" y="432"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ar-scan-corners" width="47" height="48"/>
+        <image name="scan_net" width="241" height="241"/>
+    </resources>
+</document>

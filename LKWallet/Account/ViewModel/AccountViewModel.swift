@@ -31,6 +31,10 @@ class AccountViewModel {
         }
         self.qrImage = UIImage.createQRImage(string: account.address)
     }
+    
+    func cellClass() -> AccountListCell.Type {
+        return AccountListCell.self
+    }
 }
 
 extension AccountViewModel: Equatable {

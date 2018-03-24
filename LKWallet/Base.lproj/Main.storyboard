@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PingFang.ttc">
+            <string>PingFangSC-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="kud-GV-tRE">
@@ -27,7 +32,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYY-hF-3fX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="131"/>
+            <point key="canvasLocation" x="130" y="131"/>
         </scene>
         <!--Add-->
         <scene sceneID="sOc-R4-erm">
@@ -169,7 +174,7 @@
                     <navigationItem key="navigationItem" title="Add" id="NMa-pi-6xc">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ic_scan" id="Yff-bi-O4H">
                             <connections>
-                                <segue destination="G1d-zh-ysw" kind="show" id="T1T-F2-lq7"/>
+                                <segue destination="vfC-PD-d1w" kind="show" identifier="kQRCodeAddSegueKey" id="XLh-fp-jcF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -180,61 +185,15 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABi-nE-VCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="372"/>
+            <point key="canvasLocation" x="1873" y="472"/>
         </scene>
-        <!--Code View Controller-->
-        <scene sceneID="Nei-UL-0Rk">
+        <!--QRCode-->
+        <scene sceneID="B86-iL-eao">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="G1d-zh-ysw" customClass="QRCodeViewController" customModule="LKWallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Uaq-jx-Clq"/>
-                        <viewControllerLayoutGuide type="bottom" id="10X-Ul-geq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="I1J-yM-EqP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZw-0D-QMz">
-                                <rect key="frame" x="68" y="193.5" width="240" height="240"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ar-scan-corners" translatesAutoresizingMaskIntoConstraints="NO" id="WTJ-lQ-6cB">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scan_net" translatesAutoresizingMaskIntoConstraints="NO" id="1Oq-0K-EjW">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WTJ-lQ-6cB" secondAttribute="trailing" id="33R-0F-D7X"/>
-                                    <constraint firstAttribute="bottom" secondItem="WTJ-lQ-6cB" secondAttribute="bottom" id="8Z6-tA-YRk"/>
-                                    <constraint firstItem="1Oq-0K-EjW" firstAttribute="top" secondItem="dZw-0D-QMz" secondAttribute="top" id="BXb-0Y-cFn"/>
-                                    <constraint firstItem="1Oq-0K-EjW" firstAttribute="leading" secondItem="dZw-0D-QMz" secondAttribute="leading" id="BZF-uW-Bat"/>
-                                    <constraint firstItem="WTJ-lQ-6cB" firstAttribute="leading" secondItem="dZw-0D-QMz" secondAttribute="leading" id="Ogt-qT-xMG"/>
-                                    <constraint firstAttribute="trailing" secondItem="1Oq-0K-EjW" secondAttribute="trailing" id="aph-ha-Jvh"/>
-                                    <constraint firstAttribute="width" constant="240" id="gFK-ch-5BG"/>
-                                    <constraint firstItem="1Oq-0K-EjW" firstAttribute="height" secondItem="dZw-0D-QMz" secondAttribute="height" id="l1k-av-yVy"/>
-                                    <constraint firstAttribute="height" constant="240" id="odQ-Jp-6OK"/>
-                                    <constraint firstItem="WTJ-lQ-6cB" firstAttribute="top" secondItem="dZw-0D-QMz" secondAttribute="top" id="z6K-UR-d5X"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="dZw-0D-QMz" firstAttribute="centerX" secondItem="I1J-yM-EqP" secondAttribute="centerX" id="l1K-dG-15C"/>
-                            <constraint firstItem="dZw-0D-QMz" firstAttribute="centerY" secondItem="I1J-yM-EqP" secondAttribute="centerY" constant="-20" id="lc2-jC-2mF"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="SgJ-iS-Sjl"/>
-                    </view>
-                    <connections>
-                        <outlet property="scanLineHeightCons" destination="odQ-Jp-6OK" id="iyb-bb-JmZ"/>
-                        <outlet property="scanLineImageView" destination="1Oq-0K-EjW" id="5B8-P5-Kh2"/>
-                        <outlet property="scanLineTopCons" destination="BXb-0Y-cFn" id="aOn-4E-XTC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LQo-o8-uP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="QRCode" id="vfC-PD-d1w" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jiA-Lr-G15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2662" y="372"/>
+            <point key="canvasLocation" x="2583" y="471"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="d5D-qw-zsy">
@@ -245,18 +204,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="kAccountListCell" rowHeight="142" id="FJh-Wj-1Ki" customClass="AccountListCell" customModule="LKWallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="142"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="kAccountListCell" rowHeight="182" id="FJh-Wj-1Ki" customClass="AccountListCell" customModule="LKWallet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="182"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FJh-Wj-1Ki" id="eRM-ZL-e44">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nx-AB-aJ0">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="142"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="182"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bx3-tB-ZDy">
-                                                    <rect key="frame" x="16" y="16" width="42.5" height="24"/>
+                                                    <rect key="frame" x="16" y="16" width="327" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="YNM-xX-kXm"/>
                                                     </constraints>
@@ -303,41 +262,35 @@
                                                         <action selector="clickShowQRImageBtn" destination="FJh-Wj-1Ki" eventType="touchUpInside" id="LVM-sU-Ym4"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBr-wt-wug">
-                                                    <rect key="frame" x="303" y="18.5" width="24" height="19.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUl-9p-ntb">
+                                                    <rect key="frame" x="111" y="132" width="120" height="38"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="PqO-ah-sSK"/>
+                                                        <constraint firstAttribute="width" constant="120" id="jql-6Y-bx4"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="是否有钱包文件：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5M1-1V-gct">
-                                                    <rect key="frame" x="58.5" y="20" width="244.5" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                    <state key="normal" title="发起转账">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.93726330999999996" green="0.94111460449999995" blue="0.94509905579999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
-                                                <constraint firstItem="5M1-1V-gct" firstAttribute="centerY" secondItem="bx3-tB-ZDy" secondAttribute="centerY" id="7gK-OX-6Fm"/>
+                                                <constraint firstAttribute="trailing" secondItem="bx3-tB-ZDy" secondAttribute="trailing" id="2Dv-g6-uEh"/>
+                                                <constraint firstItem="lUl-9p-ntb" firstAttribute="centerX" secondItem="4nx-AB-aJ0" secondAttribute="centerX" id="9cA-V3-s3O"/>
                                                 <constraint firstItem="nf0-xz-xY4" firstAttribute="centerY" secondItem="XIs-Kz-IED" secondAttribute="centerY" id="BlS-3S-zHQ"/>
                                                 <constraint firstItem="bx3-tB-ZDy" firstAttribute="leading" secondItem="4nx-AB-aJ0" secondAttribute="leading" constant="16" id="CFF-ef-yji"/>
                                                 <constraint firstItem="XIs-Kz-IED" firstAttribute="leading" secondItem="4nx-AB-aJ0" secondAttribute="leading" constant="16" id="Gso-7o-kPO"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jQN-30-maz" secondAttribute="trailing" constant="20" symbolic="YES" id="Jo6-na-pOY"/>
                                                 <constraint firstAttribute="trailing" secondItem="nf0-xz-xY4" secondAttribute="trailing" constant="16" id="Ngr-Ur-Kjf"/>
-                                                <constraint firstItem="5M1-1V-gct" firstAttribute="centerY" secondItem="EBr-wt-wug" secondAttribute="centerY" id="QSX-mj-Xuq"/>
+                                                <constraint firstItem="lUl-9p-ntb" firstAttribute="top" secondItem="XIs-Kz-IED" secondAttribute="bottom" constant="8" id="Prc-pY-4Rd"/>
                                                 <constraint firstItem="jQN-30-maz" firstAttribute="top" secondItem="8nL-LN-P65" secondAttribute="bottom" constant="8" id="Wtj-c3-sLI"/>
                                                 <constraint firstItem="XIs-Kz-IED" firstAttribute="top" secondItem="jQN-30-maz" secondAttribute="bottom" id="ZyX-1f-CaG"/>
                                                 <constraint firstItem="nf0-xz-xY4" firstAttribute="leading" secondItem="XIs-Kz-IED" secondAttribute="trailing" constant="8" id="bMW-rC-QfX"/>
                                                 <constraint firstItem="jQN-30-maz" firstAttribute="leading" secondItem="4nx-AB-aJ0" secondAttribute="leading" constant="16" id="bme-iw-cxd"/>
-                                                <constraint firstItem="EBr-wt-wug" firstAttribute="trailing" secondItem="nf0-xz-xY4" secondAttribute="trailing" id="fCZ-MI-7VQ"/>
                                                 <constraint firstItem="8nL-LN-P65" firstAttribute="leading" secondItem="4nx-AB-aJ0" secondAttribute="leading" constant="16" id="oFG-Qd-8cP"/>
                                                 <constraint firstAttribute="trailing" secondItem="8nL-LN-P65" secondAttribute="trailing" constant="16" id="oLS-So-WEw"/>
+                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="lUl-9p-ntb" secondAttribute="bottom" constant="12" id="om0-ZS-TwT"/>
                                                 <constraint firstItem="8nL-LN-P65" firstAttribute="top" secondItem="bx3-tB-ZDy" secondAttribute="bottom" id="p8V-Pg-XfH"/>
-                                                <constraint firstItem="EBr-wt-wug" firstAttribute="leading" secondItem="5M1-1V-gct" secondAttribute="trailing" id="vu4-rc-HXa"/>
-                                                <constraint firstItem="5M1-1V-gct" firstAttribute="leading" secondItem="bx3-tB-ZDy" secondAttribute="trailing" id="zNg-mO-X4P"/>
                                                 <constraint firstItem="bx3-tB-ZDy" firstAttribute="top" secondItem="4nx-AB-aJ0" secondAttribute="top" constant="16" id="za1-RC-9MC"/>
                                             </constraints>
                                         </view>
@@ -354,7 +307,7 @@
                                     <outlet property="addressLabel" destination="8nL-LN-P65" id="nVT-vn-Nq3"/>
                                     <outlet property="amountLabel" destination="XIs-Kz-IED" id="fii-fK-yrw"/>
                                     <outlet property="cardView" destination="4nx-AB-aJ0" id="zao-Qd-jae"/>
-                                    <outlet property="hasWalletLabel" destination="EBr-wt-wug" id="Bna-ud-X8u"/>
+                                    <outlet property="transactionBtn" destination="lUl-9p-ntb" id="M36-En-tgW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -384,7 +337,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Rp-4l-1ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918" y="131"/>
+            <point key="canvasLocation" x="917.60000000000002" y="130.88455772113943"/>
         </scene>
         <!--Transaction-->
         <scene sceneID="8TC-Q7-tNy">
@@ -392,7 +345,7 @@
                 <viewControllerPlaceholder storyboardName="Transaction" id="SCD-1y-kcY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfM-zU-4HP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1901" y="911"/>
+            <point key="canvasLocation" x="1395" y="658"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="Q33-VR-9fa">
@@ -519,7 +472,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvg-rR-JsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918" y="925"/>
+            <point key="canvasLocation" x="918" y="991"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="br1-z1-SLa">
@@ -623,7 +576,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4q-LL-dEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1873" y="-322"/>
+            <point key="canvasLocation" x="2236" y="-293"/>
         </scene>
         <!--Create Result View Controller-->
         <scene sceneID="dNX-Vz-Rb1">
@@ -724,7 +677,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PtS-Pi-V4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2654" y="-322"/>
+            <point key="canvasLocation" x="3017" y="-293"/>
         </scene>
         <!--Import Account View Controller-->
         <scene sceneID="WOf-R0-MhZ">
@@ -754,15 +707,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yhm-6w-Mjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1873" y="-1016"/>
+            <point key="canvasLocation" x="2236" y="-993"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ar-scan-corners" width="47" height="48"/>
         <image name="btn_qr" width="30" height="30"/>
         <image name="ic_about" width="24" height="24"/>
         <image name="ic_add" width="24" height="24"/>
         <image name="ic_scan" width="24" height="24"/>
-        <image name="scan_net" width="241" height="241"/>
     </resources>
 </document>

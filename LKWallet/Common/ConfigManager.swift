@@ -18,15 +18,17 @@ let kOpenKeyStoreFileNotification = "kOpenKeyStoreFileNotification"
 let kAccountChangeNotification = "kAccountChangeNotification"
 
 let kAddAccountSegueKey = "kAddAccountSegueKey"
+let kQRCodeAddSegueKey = "kQRCodeAddSegueKey"
 let kCreateAccountSegueKey = "kCreateAccountSegueKey"
 let kImportAccountSegueKey = "kImportAccountSegueKey"
 let kCreateAccountResultSegueKey = "kCreateAccountResultSegueKey"
 let kEditAccountSegueKey = "kEditAccountSegueKey"
 let kResetPasswdSegueKey = "kResetPasswdSegueKey"
 let kTransactionDetailSegueKey = "kTransactionDetailSegueKey"
+let kConfirmTransactionSegueKey = "kConfirmTransactionSegueKey"
 
 // MARK: - Third SDK Key
-let keyOfAdMob = "ca-app-pub-9047041794532200~2074026126"
+private let keyOfAdMob = "ca-app-pub-9047041794532200~2074026126"
 
 // MARK: - ConfigManager
 class ConfigManager {

@@ -42,7 +42,7 @@ extension UIViewController {
         banner.adUnitID = "ca-app-pub-9047041794532200/9070679313"
         let request = GADRequest()
         #if DEBUG
-            request.testDevices = [kGADSimulatorID, "4d9d2ff6b9a670553a33352bad3c5049"]
+            request.testDevices = [kGADSimulatorID, "4d9d2ff6b9a670553a33352bad3c5049", "d26dd26c011e852b92df1315c3fd4ff1"]
         #endif
         banner.load(request)
         return banner

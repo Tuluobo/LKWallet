@@ -44,9 +44,7 @@ class AccountManager {
             let account = savedAccounts[index]
             if accounts.contains(account) {
                 if account.hasWallet {
-                    if case .failure = OneKeyStore().delete(account: account) {
-                        return false
-                    }
+                    _ = OneKeyStore().delete(account: account)
                 }
                 savedAccounts.remove(at: index)
             }

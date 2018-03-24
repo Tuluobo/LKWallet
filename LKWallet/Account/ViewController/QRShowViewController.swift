@@ -10,7 +10,7 @@ import UIKit
 import PopupController
 import SnapKit
 
-class QRShowViewController: UIViewController, PopupContentViewController {
+class QRShowViewController: BaseViewController, PopupContentViewController {
     
     private var image: UIImage
     

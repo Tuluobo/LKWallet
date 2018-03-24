@@ -57,5 +57,36 @@ class AddAccountViewController: BaseTableViewController {
             SVProgressHUD.showError(withStatus: "账号保存失败！")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier, identifier == kQRCodeAddSegueKey {
+            if let qrCodeVC = segue.destination as? QRCodeViewController {
+                qrCodeVC.delegate = self
+            }
+        }
+    }
 
+}
+
+extension AddAccountViewController: QRCodeViewControllerDelegate {
+    func handleQRData(viewController: QRCodeViewController, string: String?) {
+        guard let accountString = string else {
+            SVProgressHUD.showError(withStatus: "没有检测到二维码信息！")
+            return
+        }
+        let account = Account(name: nil, address: accountString)
+        guard AccountManager.manager.verify(account: account) else {
+            SVProgressHUD.showError(withStatus: "账号格式不正确！")
+            return
+        }
+        if AccountManager.manager.queryAllAccount().contains(account) {
+            SVProgressHUD.showError(withStatus: "此账号已添加，不能被再次添加！")
+            return
+        }
+        guard AccountManager.manager.add(accounts: [account]) else {
+            SVProgressHUD.showError(withStatus: "账号保存失败！")
+            return
+        }
+        SVProgressHUD.showSuccess(withStatus: "账号添加成功！")
+    }
 }

@@ -25,7 +25,9 @@ class QRShowViewController: BaseViewController, PopupContentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isHiddenAdBanner.value = true
         self.view.backgroundColor = .white
+        
         let imageView = UIImageView(frame: CGRect(origin: .zero, size: image.size))
         imageView.image = image
         self.view.addSubview(imageView)

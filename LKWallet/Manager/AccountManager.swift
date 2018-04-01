@@ -53,13 +53,24 @@ class AccountManager {
     }
     
     func queryAllAccount() -> [Account] {
+        let walletAccounts = OneKeyStore().accounts
         guard let accountDicts = UserDefaults.standard.array(forKey: kAccountLocalSaveKey) as? [[String: Any]] else {
-            return []
+            return walletAccounts
         }
-        let accounts = accountDicts.map(Account.init)
+        var accounts = accountDicts.map(Account.init)
+        // wallet file insert
+        let addAccounts = walletAccounts.filter { (account) -> Bool in
+            return !accounts.contains(account)
+        }
+        if addAccounts.count > 0 {
+            accounts.append(contentsOf: addAccounts)
+            save(accounts: accounts)
+        }
+        
         return accounts
     }
     
+    @discardableResult
     func save(accounts: [Account]) -> Bool {
         let dicts = accounts.map { $0.dictionary() }
         UserDefaults.standard.set(dicts, forKey: kAccountLocalSaveKey)

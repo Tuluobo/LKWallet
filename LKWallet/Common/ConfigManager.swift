@@ -11,6 +11,13 @@ import GoogleMobileAds
 import Fabric
 import Crashlytics
 
+let normalColor = UIColor(hex: "#418BF7")!
+let disabledColor = UIColor(hex: "#418BF7")!.withAlphaComponent(0.5)
+let bordColor = UIColor(red: 21.0 / 255.0, green: 72.0 / 255.0, blue: 110.0 / 255.0, alpha: 0.4)
+
+let normalColorImage = UIImage.image(with: normalColor)
+let disabledColorImage = UIImage.image(with: disabledColor)
+
 // MARK: - Constant
 let kAccountLocalSaveKey = "kAccountLocalSaveKey"
 let kRemoveAdProductKey = "WKWallet.RemoveAD"
@@ -25,7 +32,8 @@ let kCreateAccountResultSegueKey = "kCreateAccountResultSegueKey"
 let kEditAccountSegueKey = "kEditAccountSegueKey"
 let kResetPasswdSegueKey = "kResetPasswdSegueKey"
 let kTransactionDetailSegueKey = "kTransactionDetailSegueKey"
-let kConfirmTransactionSegueKey = "kConfirmTransactionSegueKey"
+let kConfirmPasswordSegueKey = "kConfirmPasswordSegueKey"
+let kTransactionResultSegueKey = "kTransactionResultSegueKey"
 
 // MARK: - Third SDK Key
 private let keyOfAdMob = "ca-app-pub-9047041794532200~2074026126"

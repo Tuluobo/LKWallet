@@ -66,32 +66,39 @@ class EthereumManager {
     }
     
     func sendTransaction(sourceAccount: Account, passphrase: String, receiveAccount: Account, dealAmount: Double) -> Result<GethReceipt, OneError> {
-        let context = GethContext()
-        let sourceAddress = GethAddress(fromHex: sourceAccount.address)
-        let receiveAddress = GethAddress(fromHex: receiveAccount.address)
-        
-        var nonce: Int64 = 0
-        do {
-            try self.mclient.getNonceAt(context, account: sourceAddress, number: -1, nonce: &nonce)
-        } catch {
-            return .failure(.otherError(error))
-        }
-        guard let transaction = GethTransaction(nonce, to: receiveAddress, amount: GethBigInt(Int64(dealAmount * 1000000000000000000)), gasLimit: GethBigInt(100000), gasPrice: GethNewBigInt(100000000000), data: nil) else {
-            return .failure(.failedTransaction)
-        }
-        
-        let signedResult = self.keyStore.sign(account: sourceAccount, passphrase: passphrase, tx: transaction, chainID: GethBigInt(30261))
-        switch signedResult {
-        case .success(let signedTransaction):
+        return autoreleasepool { () -> Result<GethReceipt, OneError> in
+            let context = GethContext()
+            let sourceAddress = GethAddress(fromHex: sourceAccount.address)
+            let receiveAddress = GethAddress(fromHex: receiveAccount.address)
+            
+            var nonce: Int64 = 0
             do {
-                try self.mclient.sendTransaction(context, tx: signedTransaction)
-                let receipt = try self.mclient.getTransactionReceipt(context, hash: signedTransaction.getSigHash())
-                return .success(receipt)
+                try self.mclient.getNonceAt(context, account: sourceAddress, number: -1, nonce: &nonce)
             } catch {
                 return .failure(.otherError(error))
             }
-        case .failure(let error):
-            return .failure(.otherError(error))
+            
+            guard let transaction = GethTransaction(nonce, to: receiveAddress, amount: GethBigInt(Int64(dealAmount * 1000000000000000000)), gasLimit: 100000, gasPrice: GethNewBigInt(100000000000), data: nil) else {
+                return .failure(.failedTransaction)
+            }
+            
+            let signedResult = self.keyStore.sign(account: sourceAccount, passphrase: passphrase, tx: transaction, chainID: GethBigInt(30261))
+            switch signedResult {
+            case .success(let signedTransaction):
+                do {
+                    try self.mclient.sendTransaction(context, tx: signedTransaction)
+                } catch {
+                    return .failure(.otherError(error))
+                }
+                do {
+                    let receipt = try self.mclient.getTransactionReceipt(context, hash: signedTransaction.getSigHash())
+                    return .success(receipt)
+                } catch {
+                    return .failure(.otherError(error))
+                }
+            case .failure(let error):
+                return .failure(.otherError(error))
+            }
         }
     }
 }

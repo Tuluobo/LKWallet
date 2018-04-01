@@ -40,6 +40,8 @@
 		D649F924205E734B007ACDA8 /* ImportAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D649F923205E734B007ACDA8 /* ImportAccountViewController.swift */; };
 		D649F926205E7370007ACDA8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D649F925205E7370007ACDA8 /* CreateAccountViewController.swift */; };
 		D649F928205E8DE6007ACDA8 /* CreateResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D649F927205E8DE6007ACDA8 /* CreateResultViewController.swift */; };
+		D68D1795206F61AD00F16875 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1794206F61AD00F16875 /* ConfirmTransactionViewController.swift */; };
+		D68D1797206F61C800F16875 /* TransactionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68D1796206F61C800F16875 /* TransactionResultViewController.swift */; };
 		D696222520667DA000C6EDA5 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D696222320667DA000C6EDA5 /* QRCode.storyboard */; };
 		D6A39BA72066595500C55F5F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A39BA62066595500C55F5F /* UIColor.swift */; };
 		D6A39BA920665D3A00C55F5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A39BA820665D3A00C55F5F /* String.swift */; };
@@ -105,6 +107,8 @@
 		D649F923205E734B007ACDA8 /* ImportAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountViewController.swift; sourceTree = "<group>"; };
 		D649F925205E7370007ACDA8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D649F927205E8DE6007ACDA8 /* CreateResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResultViewController.swift; sourceTree = "<group>"; };
+		D68D1794206F61AD00F16875 /* ConfirmTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionViewController.swift; sourceTree = "<group>"; };
+		D68D1796206F61C800F16875 /* TransactionResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResultViewController.swift; sourceTree = "<group>"; };
 		D696222420667DA000C6EDA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/QRCode.storyboard; sourceTree = "<group>"; };
 		D6A39BA62066595500C55F5F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D6A39BA820665D3A00C55F5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -239,8 +243,8 @@
 		D620661C1FF6866E00141FCB /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				D620661D1FF6866E00141FCB /* BaseTableViewController.swift */,
 				D620661E1FF6866E00141FCB /* BaseViewController.swift */,
+				D620661D1FF6866E00141FCB /* BaseTableViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -357,6 +361,8 @@
 			children = (
 				D645722B206615D3003C4650 /* TransactionViewController.swift */,
 				D645722F2066160F003C4650 /* SendTransactionViewController.swift */,
+				D68D1794206F61AD00F16875 /* ConfirmTransactionViewController.swift */,
+				D68D1796206F61C800F16875 /* TransactionResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -545,6 +551,7 @@
 				"${BUILT_PRODUCTS_DIR}/Amplitude-iOS/Amplitude_iOS.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupController/PopupController.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
@@ -558,6 +565,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Amplitude_iOS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
@@ -617,6 +625,7 @@
 				D6A39BA72066595500C55F5F /* UIColor.swift in Sources */,
 				D62065F31FF683A500141FCB /* AppDelegate.swift in Sources */,
 				D62066591FF6866F00141FCB /* AccountListCell.swift in Sources */,
+				D68D1795206F61AD00F16875 /* ConfirmTransactionViewController.swift in Sources */,
 				D62066601FF6866F00141FCB /* AccountViewModel.swift in Sources */,
 				D649F924205E734B007ACDA8 /* ImportAccountViewController.swift in Sources */,
 				D6CF76162053E02700026413 /* EditAccountViewController.swift in Sources */,
@@ -630,6 +639,7 @@
 				D6CF761B2053E16900026413 /* OneKeyStore.swift in Sources */,
 				D620664E1FF6866F00141FCB /* TradeRequestManager.swift in Sources */,
 				D6CF76142053E00B00026413 /* ResetPasswdTableViewController.swift in Sources */,
+				D68D1797206F61C800F16875 /* TransactionResultViewController.swift in Sources */,
 				D62066531FF6866F00141FCB /* Double.swift in Sources */,
 				D62066491FF6866F00141FCB /* AccountManager.swift in Sources */,
 				D620664B1FF6866F00141FCB /* TraceManager.swift in Sources */,

@@ -184,10 +184,12 @@ extension AccountViewController: AccountListCellDelegate {
     }
     
     func accountListCell(_ cell: AccountListCell, clickedTransactionWith account: Account) {
-        guard let sendTransactionViewController = UIStoryboard(name: "Transfer", bundle: nil).instantiateInitialViewController() else {
+        guard let navigationVC = UIStoryboard(name: "Transfer", bundle: nil).instantiateInitialViewController() as? UINavigationController,
+            let sendTransactionVC = navigationVC.topViewController as? SendTransactionViewController else {
             return
         }
-        self.navigationController?.present(sendTransactionViewController, animated: true, completion: nil)
+        sendTransactionVC.transferAccount = account
+        self.navigationController?.present(navigationVC, animated: true, completion: nil)
     }
 }
 

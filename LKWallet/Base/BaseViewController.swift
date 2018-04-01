@@ -19,6 +19,7 @@ class BaseViewController: UIViewController, AdBannerProtocol {
     
     var isHiddenAdBanner = MutableProperty<Bool>(false)
     lazy var adBanner: GADBannerView = createAdBanner()
+    private let globalHiddenAd = MutableProperty<Bool>(false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,15 @@ class BaseViewController: UIViewController, AdBannerProtocol {
             make.centerX.equalToSuperview()
             make.bottom.equalTo(bottomLayoutGuide.snp.top)
         }
+        
+        adBanner.reactive.isHidden <~ isHiddenAdBanner.producer.combineLatest(with: globalHiddenAd.producer).map({ (local, global) -> Bool in
+            return local || global
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        isHiddenAdBanner.value = UserDefaults.standard.bool(forKey: kRemoveAdProductKey)
+        globalHiddenAd.value = UserDefaults.standard.bool(forKey: kRemoveAdProductKey)
     }
 }
 

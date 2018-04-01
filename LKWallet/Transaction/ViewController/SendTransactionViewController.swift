@@ -13,19 +13,20 @@ import PopupController
 
 class SendTransactionViewController: BaseViewController {
 
+    var transferAccount: Account?
+    
     @IBOutlet weak var transferButton: UIButton!
     @IBOutlet weak var transAddressTextView: UITextView!
     @IBOutlet weak var amountTextField: UITextField!
     
-    private var account: Account?
+    private var receiveAccount: Account?
     private var amount: Double = 0
+    private var password: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let normalColor = UIImage.image(with: UIColor(hex: "#418BF7")!)
-        let disabledColor = UIImage.image(with: UIColor(hex: "#418BF7")!.withAlphaComponent(0.4))
-        transferButton.setBackgroundImage(normalColor, for: .normal)
-        transferButton.setBackgroundImage(disabledColor, for: .disabled)
+        transferButton.setBackgroundImage(normalColorImage, for: .normal)
+        transferButton.setBackgroundImage(disabledColorImage, for: .disabled)
         transferButton.isEnabled = false
         
         transAddressTextView.delegate = self
@@ -38,14 +39,25 @@ class SendTransactionViewController: BaseViewController {
     }
     
     @IBAction func clickedTransferButton() {
-        // TODO
+        performSegue(withIdentifier: kConfirmPasswordSegueKey, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == kQRCodeAddSegueKey, let qrCodeVC = segue.destination as? QRCodeViewController  {
-                qrCodeVC.delegate = self
-            }
+        guard let identifier = segue.identifier else { return }
+        if identifier == kQRCodeAddSegueKey, let qrCodeVC = segue.destination as? QRCodeViewController {
+            qrCodeVC.delegate = self
+        } else if identifier == kConfirmPasswordSegueKey,
+            let navigationVC = segue.destination as? UINavigationController, let confirmVc = navigationVC.topViewController as? ConfirmTransactionViewController {
+            navigationVC.modalPresentationStyle = .custom
+            confirmVc.transferAccount = transferAccount
+            confirmVc.receiveAccount = receiveAccount
+            confirmVc.amount = amount
+            confirmVc.delegate = self
+        } else if identifier == kTransactionResultSegueKey, let resultVC = segue.destination as? TransactionResultViewController {
+            resultVC.transferAccount = transferAccount
+            resultVC.receiveAccount = receiveAccount
+            resultVC.password = password
+            resultVC.amount = amount
         }
     }
     
@@ -57,10 +69,12 @@ class SendTransactionViewController: BaseViewController {
             let amountText = amountTextField.text,
             let amount = Double(amountText), amount > 0 {
             transferButton.isEnabled = true
-            self.account = Account(name: nil, address: address)
+            self.receiveAccount = Account(name: nil, address: address)
+            self.amount = amount
         } else {
             transferButton.isEnabled = false
-            self.account = nil
+            self.receiveAccount = nil
+            self.amount = 0
         }
     }
 }
@@ -90,5 +104,15 @@ extension SendTransactionViewController: QRCodeViewControllerDelegate {
         }
         transAddressTextView.text = address
         observeTransferButtonState()
+    }
+}
+
+extension SendTransactionViewController: ConfirmTransactionViewControllerDelegate {
+    func confirmTransaction(viewController: ConfirmTransactionViewController, password: String) {
+        viewController.dismiss(animated: true) { [weak self] in
+            guard let `self` = self else { return }
+            self.password = password
+            self.performSegue(withIdentifier: kTransactionResultSegueKey, sender: nil)
+         }
     }
 }

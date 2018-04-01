@@ -5,9 +5,12 @@ PODS:
     - Fabric (~> 1.7.2)
   - CryptoSwift (0.8.3)
   - Fabric (1.7.2)
-  - Geth (1.7.2)
+  - Geth (1.8.3)
   - Google-Mobile-Ads-SDK (7.29.0)
   - MJRefresh (3.1.15)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
   - PopupController (0.2.0)
   - ReactiveCocoa (7.1.0):
     - ReactiveSwift (~> 3.1)
@@ -23,9 +26,10 @@ DEPENDENCIES:
   - Crashlytics (~> 3.9.3)
   - CryptoSwift (~> 0.8.3)
   - Fabric (~> 1.7.2)
-  - Geth (~> 1.7.2)
+  - Geth (~> 1.8.3)
   - Google-Mobile-Ads-SDK (~> 7.29.0)
   - MJRefresh (~> 3.1.15)
+  - NVActivityIndicatorView (~> 4.1.1)
   - PopupController (~> 0.2.0)
   - ReactiveCocoa (~> 7.1.0)
   - ReactiveSwift (~> 3.1.0)
@@ -38,9 +42,10 @@ SPEC CHECKSUMS:
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   CryptoSwift: 033efc3523865d19cc6ab6612fa17a62613b5dfa
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
-  Geth: 1efbf2eb4d4c697a7232c5385da127ca386b1060
+  Geth: e00dad6a7592facdf063214be13b28b7e73b0df2
   Google-Mobile-Ads-SDK: 375bbb821b3df2106c37b74f6b0a97576ddc5f6b
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   PopupController: 0b69fdf11cbeaa807789a8c3992599083640988f
   ReactiveCocoa: 105ad96f6b8711f1ee7d165fc96587479298053b
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
@@ -48,6 +53,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
 
-PODFILE CHECKSUM: 94b62d37e2a2004935062b20a9c34ef109734a25
+PODFILE CHECKSUM: 90a8a124d407ae157f29889bc95a748956738cd0
 
 COCOAPODS: 1.4.0

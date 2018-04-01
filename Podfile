@@ -12,7 +12,8 @@ target 'LKWallet' do
     pod 'MJRefresh', '~> 3.1.15'
     pod 'CryptoSwift', '~> 0.8.3'
     pod 'PopupController', '~> 0.2.0'
-    pod 'Geth', '~> 1.7.2'
+    pod 'Geth', '~> 1.8.3'
+    pod 'NVActivityIndicatorView', '~> 4.1.1'
     # 统计和广告
     pod 'Google-Mobile-Ads-SDK', '~> 7.29.0'
     pod 'Amplitude-iOS', '~> 4.0.4'

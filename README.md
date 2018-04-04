@@ -1,6 +1,5 @@
 # 玩客/链克钱包
-
-![https://travis-ci.org/Tuluobo/LKWallet](https://travis-ci.org/Tuluobo/LKWallet.svg?branch=master)  ![http://weibo.com/210101276](https://img.shields.io/badge/weibo-@秃萝卜-yellow.svg?style=flat) 
+[![Build Status](https://travis-ci.org/Tuluobo/LKWallet.svg?branch=master)](https://travis-ci.org/Tuluobo/LKWallet)  [![GitHub issues](https://img.shields.io/github/issues/Tuluobo/LKWallet.svg)](https://github.com/Tuluobo/LKWallet/issues)  [![License: Apache-2.0](https://img.shields.io/github/license/Tuluobo/LKWallet.svg)](https://www.apache.org/licenses/LICENSE-2.0)  [![Weibo](https://img.shields.io/badge/weibo-@秃萝卜-yellow.svg?style=flat)](http://weibo.com/210101276)    [![Twitter](https://img.shields.io/twitter/url/https/github.com/Tuluobo/LKWallet.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FTuluobo%2FLKWallet)
 
 <p align="center">
     <img src="https://github.com/Tuluobo/LKWallet/blob/master/screenshot/app_icon.png" width="200" alt="LKWallet" title="LKWallet" />

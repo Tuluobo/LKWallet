@@ -1,14 +1,14 @@
+# 玩客/链克钱包
+
+![https://travis-ci.org/Tuluobo/LKWallet](https://travis-ci.org/Tuluobo/LKWallet.svg?branch=master)  ![http://weibo.com/210101276](https://img.shields.io/badge/weibo-@秃萝卜-yellow.svg?style=flat) 
+
 <p align="center">
     <img src="https://github.com/Tuluobo/LKWallet/blob/master/screenshot/app_icon.png" width="200" alt="LKWallet" title="LKWallet" />
-</p>
-<h1 align="center">玩客/链克钱包</h1><br/>
-<p align="center">
-    <a href="https://travis-ci.org/Tuluobo/LKWallet"><img src="https://travis-ci.org/Tuluobo/LKWallet.svg?branch=master"></a>        <a href="http://weibo.com/210101276"><img src="https://img.shields.io/badge/weibo-@秃萝卜-yellow.svg?style=flat"></a>
 </p>
 
 ## 关于 
 
-LKWallet 是一款迅雷玩客币（链克）查询和账户操作的第三方 App，App 现在支持无私钥查询余额，交易，创建账户，导入导出，转账，欢迎下载体验，随手 Star 一个，Thanks。
+LKWallet 是一款迅雷玩客币（链克）查询和账户操作的第三方 App，现在支持无私钥查询余额，交易，创建账户，导入导出，转账，欢迎下载体验，随手 Star 一个，Thanks。
 
 > App Store 地址:  [https://itunes.apple.com/cn/app/玩客钱包/id1302778851](https://itunes.apple.com/cn/app/%e7%8e%a9%e5%ae%a2%e9%92%b1%e5%8c%85/id1302778851)
 
@@ -42,7 +42,7 @@ LKWallet 是一款迅雷玩客币（链克）查询和账户操作的第三方 A
 - [x] 账户修改密码
 - [x] 转账 (目前提交的代码中实现的方法迅雷没有禁止大陆转账之前的接口，目前迅雷已经限制了大陆 IP 的访问，所以代码开发完成了，但是不能转账，后面会使用 JSONRPC 的方式)
 
-欢迎大家继续提出好玩的功能，我会根据能力是现在 App 中。
+欢迎大家继续提出好玩的功能，我会根据能力在 App 中实现。
 
 ## License
 

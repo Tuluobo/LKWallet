@@ -118,7 +118,15 @@ class AboutViewController: BaseTableViewController {
     }
     
     private func openHelp() {
-        
+        let helpUrlString = "https://www.oneairwallet.com/c/lkwallet"
+        guard let helpUrl = URL(string: helpUrlString), UIApplication.shared.canOpenURL(helpUrl) else {
+            return
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(helpUrl, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(helpUrl)
+        }
     }
     
     private func removeAd() {

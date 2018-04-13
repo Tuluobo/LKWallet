@@ -9,12 +9,26 @@
 import Foundation
 import Alamofire
 
-let baseWalletURL = "https://walletapi.onethingpcs.com"
+private let baseWalletURL = "https://walletapi.onethingpcs.com"
+private let baseApiURL = "https://api.oneairwallet.com"
 
 public enum NetError: Error {
     case network(String?)
     case data(String?)
     case unknow(String?)
+    
+    var localizedDescription: String {
+        var message: String?
+        switch self {
+            case .network(let msg):
+                message = msg
+            case .data(let msg):
+                message = msg
+            case .unknow(let msg):
+                message = msg
+        }
+        return message ?? "未知原因(-1)"
+    }
 }
 
 struct JSONStringArrayEncoding: ParameterEncoding {
@@ -80,6 +94,46 @@ class TradeRequestManager {
             }
             let trades = result.map(Trade.init)
             completion?(Int(page), trades, nil)
+        }
+    }
+    
+    func sendTransactionRequest(with transactionHex: String, completion: ((String?, NetError?) -> Void)?) {
+        let url = baseApiURL + "/sendTransaction"
+        let json = """
+                {
+                    "jsonrpc": "2.0",
+                    "method": "eth_sendRawTransaction",
+                    "params": ["\(transactionHex)"],
+                    "id": 1,
+                    "Nc": "IN"
+                }
+                """
+        let params: Parameters?
+        do {
+            params = try RequestTool.sign(jsonString: json)
+        } catch {
+            completion?(nil, error as? NetError)
+            return
+        }
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: defaultHeaders).responseJSON { (response) in
+            if let error = response.error {
+                completion?(nil, NetError.network("请求返回错误！Error: \(error.localizedDescription)"))
+                return
+            }
+            guard let data = response.result.value as? [String: Any] else {
+                completion?(nil, NetError.data("服务端数据错误！"))
+                return
+            }
+            if let error = data["error"] as? [String: Any],
+                let code = error["code"] as? Int,
+                let msg = error["message"] as? String {
+                completion?(nil, NetError.data("\(msg)(\(code))"))
+                return
+            }
+            if let result = data["result"] as? String {
+                completion?(result, nil)
+            }
         }
     }
     

@@ -65,7 +65,7 @@ class CreateResultViewController: BaseViewController {
         self.resultImageView.image = #imageLiteral(resourceName: "ic_error")
         self.resultLabel.text = "账户创建失败"
         self.addressTitleLabel.text = "错误原因："
-        self.addressLabel.text = "\(error.errorDescription)"
+        self.addressLabel.text = "\(error.localizedDescription)"
         
         self.qrCodeImageView.isHidden = true
         self.tipsTitleLabel.isHidden = true
@@ -101,7 +101,7 @@ class CreateResultViewController: BaseViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             })
         case .failure(let error):
-            SVProgressHUD.showError(withStatus: "账户异常，请重新尝试！Error: \(error.errorDescription)")
+            SVProgressHUD.showError(withStatus: "账户异常，请重新尝试！Error: \(error.localizedDescription)")
         }
     }
     

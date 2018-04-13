@@ -34,6 +34,7 @@ class ConfirmTransactionViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        TraceManager.shared.traceEvent(event: "transaction_confirm_enter")
         isHiddenAdBanner.value = true
         
         setupUI()
@@ -81,6 +82,7 @@ class ConfirmTransactionViewController: BaseViewController {
     }
 
     @IBAction func clickedCloseBtn() {
+        TraceManager.shared.traceEvent(event: "transaction_confirm_close")
         self.dismiss(animated: true, completion: nil)
     }
     

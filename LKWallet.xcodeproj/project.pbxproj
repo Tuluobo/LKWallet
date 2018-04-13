@@ -45,6 +45,7 @@
 		D696222520667DA000C6EDA5 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D696222320667DA000C6EDA5 /* QRCode.storyboard */; };
 		D6A39BA72066595500C55F5F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A39BA62066595500C55F5F /* UIColor.swift */; };
 		D6A39BA920665D3A00C55F5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A39BA820665D3A00C55F5F /* String.swift */; };
+		D6B2141B2078B710001CC0E0 /* RequestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B2141A2078B710001CC0E0 /* RequestTool.swift */; };
 		D6CF760C2053DD7A00026413 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CF760A2053DD7900026413 /* Transaction.storyboard */; };
 		D6CF760E2053DDEC00026413 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CF760D2053DDEC00026413 /* UIView.swift */; };
 		D6CF76142053E00B00026413 /* ResetPasswdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CF76132053E00B00026413 /* ResetPasswdTableViewController.swift */; };
@@ -112,6 +113,7 @@
 		D696222420667DA000C6EDA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/QRCode.storyboard; sourceTree = "<group>"; };
 		D6A39BA62066595500C55F5F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D6A39BA820665D3A00C55F5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D6B2141A2078B710001CC0E0 /* RequestTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTool.swift; sourceTree = "<group>"; };
 		D6CF760B2053DD7900026413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Transaction.storyboard; sourceTree = "<group>"; };
 		D6CF760D2053DDEC00026413 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D6CF76132053E00B00026413 /* ResetPasswdTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswdTableViewController.swift; sourceTree = "<group>"; };
@@ -188,11 +190,12 @@
 				D62065F21FF683A500141FCB /* AppDelegate.swift */,
 				D62066271FF6866E00141FCB /* Common */,
 				D620661C1FF6866E00141FCB /* Base */,
-				D6CF76172053E16900026413 /* Wallet */,
 				D62066341FF6866E00141FCB /* Account */,
 				D620662A1FF6866E00141FCB /* Settings */,
 				D62066171FF6866E00141FCB /* Transaction */,
+				D6CF76172053E16900026413 /* Wallet */,
 				D620661F1FF6866E00141FCB /* Manager */,
+				D6B214192078B6B7001CC0E0 /* Tools */,
 				D620662D1FF6866E00141FCB /* Extension */,
 				D62066141FF6860300141FCB /* StoryBoards */,
 				D62066131FF6847A00141FCB /* Supporting Files */,
@@ -367,6 +370,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		D6B214192078B6B7001CC0E0 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				D6B2141A2078B710001CC0E0 /* RequestTool.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		D6CF76172053E16900026413 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,7 +438,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Tuluobo;
 				TargetAttributes = {
 					D62065EE1FF683A500141FCB = {
@@ -645,6 +656,7 @@
 				D620664B1FF6866F00141FCB /* TraceManager.swift in Sources */,
 				D62066481FF6866F00141FCB /* BaseViewController.swift in Sources */,
 				D62066521FF6866F00141FCB /* AboutViewController.swift in Sources */,
+				D6B2141B2078B710001CC0E0 /* RequestTool.swift in Sources */,
 				D649F928205E8DE6007ACDA8 /* CreateResultViewController.swift in Sources */,
 				D645723020661610003C4650 /* SendTransactionViewController.swift in Sources */,
 				D62066511FF6866F00141FCB /* ConfigManager.swift in Sources */,
@@ -729,6 +741,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -736,6 +749,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -786,6 +800,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -793,6 +808,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -832,7 +848,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LKWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.LKWallet;
+				PRODUCT_BUNDLE_IDENTIFIER = tuluobo.com.WKWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -849,7 +865,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LKWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.LKWallet;
+				PRODUCT_BUNDLE_IDENTIFIER = tuluobo.com.WKWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

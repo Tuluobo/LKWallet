@@ -25,6 +25,7 @@ class SendTransactionViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        TraceManager.shared.traceEvent(event: "send_transaction_enter")
         transferButton.setBackgroundImage(normalColorImage, for: .normal)
         transferButton.setBackgroundImage(disabledColorImage, for: .disabled)
         transferButton.isEnabled = false
@@ -39,6 +40,10 @@ class SendTransactionViewController: BaseViewController {
     }
     
     @IBAction func clickedTransferButton() {
+        TraceManager.shared.traceEvent(event: "send_transaction_click",
+                                       properties: ["transferAccount": transferAccount?.address ?? "",
+                                                    "receiveAccount": receiveAccount?.address ?? "",
+                                                    "amount": amount])
         performSegue(withIdentifier: kConfirmPasswordSegueKey, sender: nil)
     }
     

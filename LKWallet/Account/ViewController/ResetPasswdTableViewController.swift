@@ -62,7 +62,7 @@ class ResetPasswdTableViewController: BaseTableViewController {
         case .success:
             SVProgressHUD.showSuccess(withStatus: "密码修改成功，请及时备份文件！")
         case .failure(let error):
-            SVProgressHUD.showError(withStatus: "\(error.errorDescription)")
+            SVProgressHUD.showError(withStatus: "\(error.localizedDescription)")
         }
         self.navigationController?.popViewController(animated: true)
     }

@@ -9,12 +9,25 @@
 import Foundation
 import Alamofire
 
-let baseWalletURL = "https://walletapi.onethingpcs.com"
+private let baseWalletURL = "https://walletapi.onethingpcs.com"
 
 public enum NetError: Error {
     case network(String?)
     case data(String?)
     case unknow(String?)
+    
+    var localizedDescription: String {
+        var message: String?
+        switch self {
+            case .network(let msg):
+                message = msg
+            case .data(let msg):
+                message = msg
+            case .unknow(let msg):
+                message = msg
+        }
+        return message ?? "未知原因(-1)"
+    }
 }
 
 struct JSONStringArrayEncoding: ParameterEncoding {
@@ -49,7 +62,7 @@ class TradeRequestManager {
     fileprivate var defaultHeaders: HTTPHeaders {
         var headers = Alamofire.SessionManager.defaultHTTPHeaders
         headers["Accept"] = "*/*"
-        headers["User-Agent"] = "OneWallet/1.2.0 (iPhone; iOS 11.2; Scale/3.00)"
+        headers["User-Agent"] = "OneWallet/1.2.0 (iPhone; iOS 11.3; Scale/3.00)"
         headers["Content-Type"] = "application/json"
         headers["Accept-Language"] = "zh-Hans-CN;q=1"
         return headers
@@ -80,6 +93,45 @@ class TradeRequestManager {
             }
             let trades = result.map(Trade.init)
             completion?(Int(page), trades, nil)
+        }
+    }
+    
+    func sendTransactionRequest(with transactionHex: String, completion: ((String?, NetError?) -> Void)?) {
+        
+        assertionFailure("注意修改此处的代理地址！")
+        
+        let proxyInfo: [String: Any] = ["HTTPSEnable": true,
+                                        "HTTPSProxy": "192.168.1.233",      // 你的海外代理地址
+                                        "HTTPSPort" : 1087]                 // 端口
+        
+        let params: Parameters = ["jsonrpc": "2.0",
+                                  "method": "eth_sendRawTransaction",
+                                  "params": ["\(transactionHex)"],
+                                  "id": 1,
+                                  "Nc": "IN"]
+        var headers = defaultHeaders
+        headers["Nc"] = "IN"
+        
+        let configuration = Alamofire.SessionManager.default.session.configuration
+        configuration.connectionProxyDictionary = proxyInfo
+        Alamofire.SessionManager(configuration: configuration).request(baseWalletURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            if let error = response.error {
+                completion?(nil, NetError.network("请求返回错误！Error: \(error.localizedDescription)"))
+                return
+            }
+            guard let data = response.result.value as? [String: Any] else {
+                completion?(nil, NetError.data("服务端数据错误！"))
+                return
+            }
+            if let error = data["error"] as? [String: Any],
+                let code = error["code"] as? Int,
+                let msg = error["message"] as? String {
+                completion?(nil, NetError.data("\(msg)(\(code))"))
+                return
+            }
+            if let result = data["result"] as? String {
+                completion?(result, nil)
+            }
         }
     }
     

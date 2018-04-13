@@ -127,7 +127,7 @@ class TransactionViewController: BaseTableViewController {
             }
             self.present(activityVC, animated: true, completion: nil)
         case .failure(let error):
-            SVProgressHUD.showError(withStatus: "账户异常，请重新尝试！Error: \(error.errorDescription)")
+            SVProgressHUD.showError(withStatus: "账户异常，请重新尝试！Error: \(error.localizedDescription)")
         }
     }
     

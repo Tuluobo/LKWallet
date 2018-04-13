@@ -57,30 +57,23 @@ class TransactionResultViewController: BaseViewController {
         
         DispatchQueue.global().async { [weak self] in
             guard let `self` = self else { return }
-            let result = EthereumManager.shared.sendTransaction(sourceAccount: transferAccount, passphrase: password, receiveAccount: receiveAccount, dealAmount: self.amount)
-            DispatchQueue.main.async { [weak self] in
-                self?.loadingView.stopAnimating()
-                self?.resultImageView.isHidden = false
-                self?.returnButton.isHidden = false
-                
-                switch result {
-                case .success(let receipt):
-                    self?.resultImageView.image = #imageLiteral(resourceName: "ic_success")
-                    self?.loadingLabel.text = "转账处理完成，3-5分钟后会在交易加载完成。\nTransaction Receipt: \(receipt.string())"
-                    self?.returnButton.setTitle("完成", for: .normal)
-                case .failure(let error):
-                    let errorDesc: String
-                    if case .otherError(let err) = error, let keyStoreError = err as? KeyStoreError {
-                        errorDesc = keyStoreError.errorDescription
-                    } else {
-                        errorDesc = error.errorDescription
-                    }
+            EthereumManager.shared.sendTransaction(sourceAccount: transferAccount, passphrase: password, receiveAccount: receiveAccount, dealAmount: self.amount, completion: { (txHash, error) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.loadingView.stopAnimating()
+                    self?.resultImageView.isHidden = false
+                    self?.returnButton.isHidden = false
                     
-                    self?.resultImageView.image = #imageLiteral(resourceName: "ic_error")
-                    self?.loadingLabel.text = "\(errorDesc)"
-                    self?.returnButton.setTitle("再次重试", for: .normal)
+                    if let error = error {
+                        self?.resultImageView.image = #imageLiteral(resourceName: "ic_error")
+                        self?.loadingLabel.text = "\(error.localizedDescription)"
+                        self?.returnButton.setTitle("再次重试", for: .normal)
+                    } else {
+                        self?.resultImageView.image = #imageLiteral(resourceName: "ic_success")
+                        self?.loadingLabel.text = "转账处理完成，3-5分钟后交易会处理完成，请在交易列表查看。\nTransaction Hash: \(txHash ?? "")"
+                        self?.returnButton.setTitle("完成", for: .normal)
+                    }
                 }
-            }
+            })
         }
     }
     

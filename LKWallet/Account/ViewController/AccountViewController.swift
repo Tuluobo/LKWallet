@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 import PopupController
+import MJRefresh
 
 private let kAccountListCell = "kAccountListCell"
 private let kAccountListToTradeSegue = "kAccountListToTradeSegue"
@@ -28,6 +29,11 @@ class AccountViewController: BaseTableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlerImport(notification:)), name: NSNotification.Name(kOpenKeyStoreFileNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlerAccountChange), name: NSNotification.Name(kAccountChangeNotification), object: nil)
+        
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            self?.loadData(isForce: true)
+            self?.tableView.mj_header.endRefreshing()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -156,7 +162,7 @@ extension AccountViewController {
             }
             self.navigationController?.popToRootViewController(animated: true)
         case .failure(let error):
-            SVProgressHUD.showError(withStatus: "\(error.errorDescription)")
+            SVProgressHUD.showError(withStatus: "\(error.localizedDescription)")
         }
     }
 }

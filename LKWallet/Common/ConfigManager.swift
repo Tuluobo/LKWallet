@@ -19,6 +19,7 @@ let normalColorImage = UIImage.image(with: normalColor)
 let disabledColorImage = UIImage.image(with: disabledColor)
 
 // MARK: - Constant
+
 let kAccountLocalSaveKey = "kAccountLocalSaveKey"
 let kRemoveAdProductKey = "WKWallet.RemoveAD"
 let kOpenKeyStoreFileNotification = "kOpenKeyStoreFileNotification"
@@ -36,9 +37,11 @@ let kConfirmPasswordSegueKey = "kConfirmPasswordSegueKey"
 let kTransactionResultSegueKey = "kTransactionResultSegueKey"
 
 // MARK: - Third SDK Key
+
 private let keyOfAdMob = "ca-app-pub-9047041794532200~2074026126"
 
 // MARK: - ConfigManager
+
 class ConfigManager {
     static let shared = ConfigManager()
     private init() { }

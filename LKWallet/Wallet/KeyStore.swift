@@ -21,7 +21,8 @@ enum KeyStoreError: LocalizedError {
     case failedToCreateWallet
     case failedToImportPrivateKey
     
-    var errorDescription: String {
+    
+    var localizedDescription: String {
         switch self {
         case .failedToFindAccount:
             return "未找到对应账户！"

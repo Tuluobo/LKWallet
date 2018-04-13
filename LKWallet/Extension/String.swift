@@ -12,11 +12,7 @@ protocol Emptable {
     var isEmpty: Bool { get }
 }
 
-extension String: Emptable {
-    var isEmpty: Bool {
-        return self.count == 0
-    }
-}
+extension String: Emptable { }
 
 extension Swift.Optional where Wrapped: Emptable {
     var isEmpty: Bool {
@@ -28,11 +24,12 @@ extension String {
     
     func substring(from string: String) -> String? {
         guard let range = self.range(of: string) else { return nil }
-        return self.substring(from: range.upperBound)
+        return String(self[range.upperBound...])
     }
     
     func substring(to string: String) -> String? {
         guard let range = self.range(of: string) else { return nil }
-        return self.substring(to: range.lowerBound)
+        return String(self[..<range.lowerBound])
     }
+
 }

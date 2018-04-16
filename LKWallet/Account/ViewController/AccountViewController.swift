@@ -128,6 +128,10 @@ class AccountViewController: BaseTableViewController {
             self.performSegue(withIdentifier: kImportAccountSegueKey, sender: nil)
         }))
         actionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        if let popoverPresentationController = actionSheet.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect(x: view.width - 40, y: 0, width: 1, height: 1)
+        }
         present(actionSheet, animated: true, completion: nil)
     }
 }

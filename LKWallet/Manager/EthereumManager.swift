@@ -57,7 +57,8 @@ class EthereumManager {
                     }
                     completion?(.success(Double(hexString: "0x\(balanceBytes.toHexString())")))
                 }
-            } catch{
+            } catch {
+                print("\(error.localizedDescription)")
                 DispatchQueue.main.async {
                     completion?(.failure(.otherError(error)))
                 }

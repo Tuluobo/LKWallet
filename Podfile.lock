@@ -5,7 +5,7 @@ PODS:
     - Fabric (~> 1.7.2)
   - CryptoSwift (0.8.3)
   - Fabric (1.7.2)
-  - Geth (1.8.3)
+  - Geth (1.8.7)
   - Google-Mobile-Ads-SDK (7.29.0)
   - MJRefresh (3.1.15)
   - NVActivityIndicatorView (4.1.1):
@@ -26,7 +26,7 @@ DEPENDENCIES:
   - Crashlytics (~> 3.9.3)
   - CryptoSwift (~> 0.8.3)
   - Fabric (~> 1.7.2)
-  - Geth (~> 1.8.3)
+  - Geth (~> 1.8.7)
   - Google-Mobile-Ads-SDK (~> 7.29.0)
   - MJRefresh (~> 3.1.15)
   - NVActivityIndicatorView (~> 4.1.1)
@@ -42,7 +42,7 @@ SPEC CHECKSUMS:
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   CryptoSwift: 033efc3523865d19cc6ab6612fa17a62613b5dfa
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
-  Geth: e00dad6a7592facdf063214be13b28b7e73b0df2
+  Geth: 7f22eb5e370305b5f12c077007c4a1021dfc13d1
   Google-Mobile-Ads-SDK: 375bbb821b3df2106c37b74f6b0a97576ddc5f6b
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
@@ -53,6 +53,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
 
-PODFILE CHECKSUM: 90a8a124d407ae157f29889bc95a748956738cd0
+PODFILE CHECKSUM: 57c86e9638beb0739441a3a864cbe9a4759ece79
 
 COCOAPODS: 1.4.0

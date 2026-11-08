@@ -25,7 +25,7 @@ class AccountViewController: BaseTableViewController {
         super.viewDidLoad()
         
         TraceManager.shared.traceEvent(event: "account_enter")
-        self.navigationItem.title = "玩客钱包"
+        self.navigationItem.title = "钱包首页"
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlerImport(notification:)), name: NSNotification.Name(kOpenKeyStoreFileNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlerAccountChange), name: NSNotification.Name(kAccountChangeNotification), object: nil)
